@@ -19,7 +19,10 @@ def login(request):
         user = auth.authenticate(username=username, password=password)
         if user is not None and user.is_active:
         #if form.is_valid() and User.objects.get(username=form.cleaned_data['login'], password=form.cleaned_data['password']):
-            return render(request, 'create_witcher.html')
+            user2 = User.objects.get_by_natural_key(username)
+            auth.login(request, user2)
+            return redirect('/create_witcher/')
+            #return render(request, 'create_witcher.html')
         else:
             return render(request, 'login.html', {'form': form, })
     else:
@@ -32,8 +35,10 @@ def register(request):
         form = forms.UserRegisterForm(request.POST)
         if form.is_valid():
             user = User.objects.create_user(form.cleaned_data['login'], 'email', form.cleaned_data['password'])
-            user.profile.last_seen = datetime.today()
+            #user.profile.last_seen = datetime.today()
             user.save()
+            auth.authenticate(username=user.username, password=form.cleaned_data['password'])
+            auth.login(request, user)
             return redirect('/create_witcher/')
         else:
             return redirect('/register/')
