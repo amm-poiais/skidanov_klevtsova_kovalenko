@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', witcher_views.login),
     path('register/', witcher_views.register),
+    path('create_witcher/', witcher_views.create_witcher)
 ]
