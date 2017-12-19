@@ -1,4 +1,7 @@
 from django.db import models
+from django.contrib.auth.models import User
+from django.db.models.signals import post_save
+from django.dispatch import receiver
 
 # Create your models here.
 
@@ -43,12 +46,16 @@ class Weapon(models.Model):
     owned_by_school = models.BooleanField()
     school = models.ForeignKey(WitcherSchool, models.PROTECT)
     weapon_type = models.ForeignKey(WeaponType, models.PROTECT)
+    price = models.IntegerField()
+    damage = models.IntegerField()
 
 
 class Armor(models.Model):
     name = models.CharField(max_length=40)
     owned_by_school = models.BooleanField()
     school = models.ForeignKey(WitcherSchool, models.PROTECT, null=True)
+    price = models.IntegerField()
+    protection = models.IntegerField()
 
 
 class Witcher(models.Model):
@@ -143,3 +150,18 @@ class HavingAlchemy(models.Model):
 
     class Meta:
         unique_together = (("alchemy", "witcher"),)
+
+
+class Profile(models.Model):
+    user = models.OneToOneField(User, on_delete=models.PROTECT)
+    last_seen = models.DateTimeField()
+    witcher = models.OneToOneField(Witcher, on_delete=models.SET_NULL, null=True)
+
+    @receiver(post_save, sender=User)
+    def create_user_profile(self, instance, created, **kwargs):
+        if created:
+            Profile.objects.create(user=instance)
+
+    @receiver(post_save, sender=User)
+    def save_user_profile(self, instance, **kwargs):
+        instance.profile.save()
