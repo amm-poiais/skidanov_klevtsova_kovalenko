@@ -6,5 +6,12 @@
 </head>
 <body>
     <p>Witcher creation</p>
+    <form action="/create_witcher/" method="post">
+        <div>
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit" value="Submit">
+        </div>
+    </form>
 </body>
 </html>

@@ -49,7 +49,9 @@ def register(request):
 
 @login_required(login_url='/login/')
 def create_witcher(request):
-    if request.method == 'GET':
-        return render(request, 'create_witcher.html')
-    else:
+    if request.method == 'POST':
         return redirect('/hello_world/')
+    else:
+        form = forms.CreateWitcherForm()
+        return render(request, 'create_witcher.html', {'form': form, })
+
