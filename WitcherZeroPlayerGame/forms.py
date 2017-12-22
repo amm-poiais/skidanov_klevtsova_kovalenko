@@ -14,6 +14,6 @@ class UserRegisterForm(forms.Form):
 
 class CreateWitcherForm(forms.Form):
     name = forms.CharField(max_length=40)
-    age = forms.IntegerField()
-    school = forms.ModelChoiceField(queryset=models.WitcherSchool.objects.all().values_list('name'))
+    age = forms.IntegerField(min_value=20, initial=100)
+    school = forms.ModelChoiceField(queryset=models.WitcherSchool.objects.all(), initial=1)
 

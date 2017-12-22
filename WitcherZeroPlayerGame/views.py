@@ -5,6 +5,7 @@ from WitcherZeroPlayerGame import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
+from WitcherZeroPlayerGame import models
 
 from datetime import date, datetime
 
@@ -50,8 +51,21 @@ def register(request):
 @login_required(login_url='/login/')
 def create_witcher(request):
     if request.method == 'POST':
-        return redirect('/hello_world/')
+        form = forms.CreateWitcherForm(request.POST)
+        if form.is_valid():
+            witcher = models.Witcher(name=form.cleaned_data['name'], age=form.cleaned_data['age'], school=form.cleaned_data['school'], status='Жив')
+            witcher.save()
+            request.user.profile.witcher = witcher
+            request.user.save()
+            return redirect('/home/')
+        else:
+            return redirect('/create_witcher/')
     else:
         form = forms.CreateWitcherForm()
         return render(request, 'create_witcher.html', {'form': form, })
+
+
+@login_required(login_url='/login/')
+def home(request):
+    return render(request, 'home.html', {})
 

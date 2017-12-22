@@ -41,6 +41,9 @@ class MonsterWeaponTypeRelation(models.Model):
 class WitcherSchool(models.Model):
     name = models.CharField(max_length=40)
 
+    def __str__(self):
+        return self.name
+
 
 class Weapon(models.Model):
     name = models.CharField(max_length=40)
@@ -60,7 +63,7 @@ class Armor(models.Model):
 
 
 class Witcher(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, unique=True)
     age = models.IntegerField()
     school = models.ForeignKey(WitcherSchool, models.PROTECT, null=True)
     status = models.CharField(max_length=30)
