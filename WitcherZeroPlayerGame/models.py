@@ -168,3 +168,13 @@ class Profile(models.Model):
     @receiver(post_save, sender=User)
     def save_user_profile(sender, instance, **kwargs):
         instance.profile.save()
+
+
+class Event(models.Model):
+    event = models.CharField(max_length=200)
+
+
+class WitcherEvent(models.Model):
+    event = models.ForeignKey(Witcher, models.PROTECT, related_name='witcher_event')
+    witcher = models.ForeignKey(Witcher, models.PROTECT, related_name='witcher')
+    date = models.DateTimeField()
