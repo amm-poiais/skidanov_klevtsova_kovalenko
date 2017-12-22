@@ -22,7 +22,10 @@ def login(request):
         #if form.is_valid() and User.objects.get(username=form.cleaned_data['login'], password=form.cleaned_data['password']):
             user2 = User.objects.get_by_natural_key(username)
             auth.login(request, user2)
-            return redirect('/create_witcher/')
+            if user2.profile.witcher is None:
+                return redirect('/create_witcher/')
+            else:
+                return redirect('/home/')
             #return render(request, 'create_witcher.html')
         else:
             return render(request, 'login.html', {'form': form, })
@@ -67,5 +70,8 @@ def create_witcher(request):
 
 @login_required(login_url='/login/')
 def home(request):
-    return render(request, 'home.html', {})
+    if request.user.profile.witcher is not None:
+        return render(request, 'home.html', {})
+    else:
+        return redirect('/create_witcher/')
 
