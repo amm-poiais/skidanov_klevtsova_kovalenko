@@ -178,6 +178,6 @@ class Event(models.Model):
 
 
 class WitcherEvent(models.Model):
-    event = models.ForeignKey(Witcher, models.PROTECT, related_name='witcher_event')
+    event = models.CharField(max_length=200)
     witcher = models.ForeignKey(Witcher, models.PROTECT, related_name='witcher')
     date = models.DateTimeField()
