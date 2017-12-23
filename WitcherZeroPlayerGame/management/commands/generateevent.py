@@ -25,7 +25,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def generate_positive_event(user):
-        positive_event_type = randint(0, 2)
+        positive_event_type = randint(0, 1)
         message = ""
         if positive_event_type == 0:
             weapon = Command.get_random_weapon(user.profile.witcher)
@@ -36,22 +36,23 @@ class Command(BaseCommand):
             else:
                 having_weapon = models.HavingWeapon.objects.create(witcher=user.profile.witcher, weapon=weapon, count=1)
                 having_weapon.save()
+            message = "Нашел " + weapon.name + " в кустах... Может, все же есть бог на свете?"
+        else:
+            message = "Какое-то хорошее событие!"
+        witcher_event = models.WitcherEvent(witcher=user.profile.witcher, event=message, date=datetime.now())
+        witcher_event.save()
+
+    @staticmethod
+    def generate_negative_event(user):
+        message = 'Какое-то плохое событие!'
+        witcher_event = models.WitcherEvent(witcher=user.profile.witcher, event=message, date=datetime.now())
+        witcher_event.save()
 
     def handle(self, *args, **options):
-        print(User.objects.all())
-        print(User.objects.filter(
-                profile__last_seen__gte=datetime.now() - timedelta(minutes=10),
-                profile__witcher__age__isnull=False
-        ))
         for user in User.objects.filter(
                 profile__last_seen__gte=datetime.now() - timedelta(minutes=10),
                 profile__witcher__age__isnull=False
         ):
-            count = models.Event.objects.aggregate(count=Count('id'))['count']
-            random_index = randint(0, count - 1)
-            event = models.Event.objects.all()[random_index]
-            witcher_event = models.WitcherEvent(witcher=user.profile.witcher, event=event, date=datetime.now())
-            witcher_event.save()
             event_type = randint(0, 2)
             if event_type == 0:
                 self.generate_neutral_event(user)
@@ -61,6 +62,3 @@ class Command(BaseCommand):
                 else:
                     self.generate_negative_event(user)
         self.stdout.write('Finished')
-
-
-    de
