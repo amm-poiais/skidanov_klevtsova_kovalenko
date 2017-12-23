@@ -12,15 +12,20 @@ from datetime import date, datetime
 # Create your views here.
 
 
+def main(request):
+    return redirect('/home/')
+
+
 def login(request):
     if request.method == 'POST':
         form = forms.UserLoginForm(request.POST)
         username = request.POST['login']
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
-        if user is not None and user.is_active:
+        if form.is_valid() and user is not None and user.is_active:
         #if form.is_valid() and User.objects.get(username=form.cleaned_data['login'], password=form.cleaned_data['password']):
             user2 = User.objects.get_by_natural_key(username)
+            user2.profile.last_seen = datetime.now()
             auth.login(request, user2)
             if user2.profile.witcher is None:
                 return redirect('/create_witcher/')
@@ -39,7 +44,7 @@ def register(request):
         form = forms.UserRegisterForm(request.POST)
         if form.is_valid():
             user = User.objects.create_user(form.cleaned_data['login'], 'email', form.cleaned_data['password'])
-            #user.profile.last_seen = datetime.today()
+            user.profile.last_seen = datetime.now()
             user.save()
             auth.authenticate(username=user.username, password=form.cleaned_data['password'])
             auth.login(request, user)
