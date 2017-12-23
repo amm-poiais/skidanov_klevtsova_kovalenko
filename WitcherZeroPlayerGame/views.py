@@ -81,6 +81,8 @@ def create_witcher(request):
 
 @login_required(login_url='/login/')
 def home(request):
+    request.user.profile.last_seen = datetime.now()
+    request.user.save()
     if request.user.profile.witcher is not None:
         return render(request, 'home.html', {})
     else:

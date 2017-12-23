@@ -42,7 +42,7 @@
                                 message.setAttribute("class", "event_message");
                                 message.innerHTML = "<p>" + event.message + "</p>";
                                 node.appendChild(date).appendChild(message);
-                                $("#event_container").appendChild(node);
+                                $("#event_container").append(node);
                             }
                         },
                         error: function(xhr, status, error) {
