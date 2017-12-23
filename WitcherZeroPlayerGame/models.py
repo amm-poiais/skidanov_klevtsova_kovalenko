@@ -35,11 +35,14 @@ class MonsterWeaponTypeRelation(models.Model):
     damage_perc = models.ForeignKey(DamagePerc, models.PROTECT)
 
     class Meta:
-        unique_together = (("monster", "weapon_type", "damage_perc"),)
+        unique_together = (("monster", "weapon_type"),)
 
 
 class WitcherSchool(models.Model):
     name = models.CharField(max_length=40)
+
+    def __str__(self):
+        return self.name
 
 
 class Weapon(models.Model):
@@ -60,7 +63,7 @@ class Armor(models.Model):
 
 
 class Witcher(models.Model):
-    name = models.CharField(max_length=40)
+    name = models.CharField(max_length=40, unique=True)
     age = models.IntegerField()
     school = models.ForeignKey(WitcherSchool, models.PROTECT, null=True)
     status = models.CharField(max_length=30)
@@ -120,7 +123,7 @@ class MonsterDamageTypePerc(models.Model):
     damage_perc = models.ForeignKey(DamagePerc, models.PROTECT)
 
     class Meta:
-        unique_together = (("monster", "damage_type", "damage_perc"),)
+        unique_together = (("monster", "damage_type"),)
 
 
 class AlchemyType(models.Model):
@@ -129,7 +132,7 @@ class AlchemyType(models.Model):
 
 class Alchemy(models.Model):
     name = models.CharField(max_length=40)
-    action_time = models.TimeField()
+    action_time = models.IntegerField()
     alchemy_type = models.ForeignKey(AlchemyType, models.PROTECT)
     damage_type = models.ForeignKey(DamageType, models.PROTECT)
     toxicity = models.IntegerField()

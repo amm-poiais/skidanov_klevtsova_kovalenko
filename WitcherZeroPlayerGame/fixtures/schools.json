@@ -1,0 +1,23 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.WitcherSchool",
+    "pk": 1,
+    "fields": {
+      "name": "Школа Волка"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.WitcherSchool",
+    "pk": 2,
+    "fields": {
+      "name": "Школа Кота"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.WitcherSchool",
+    "pk": 3,
+    "fields": {
+      "name": "Школа Змеи"
+    }
+  }
+]

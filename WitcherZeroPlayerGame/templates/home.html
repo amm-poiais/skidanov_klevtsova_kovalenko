@@ -1,0 +1,114 @@
+<!--{% load staticfiles %}-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <!--<link href="{% static "style.css" %}"  rel="stylesheet" type="text/css" media="all">-->
+    <style>
+        body{
+            font-family: "Comic Sans MS";
+            margin: 0;
+        }
+        .header{
+            width: 100%;
+            height: 50px;
+            background-color: #F2F7F8;
+            border-radius: 5px;
+            vertical-align: middle;
+            text-align: center;
+            line-height: 45px;
+            position: relative;
+        }
+        .main_block{
+            display: block;
+            width: 1000px;
+            margin: auto;
+            position: relative;
+        }
+
+        .block_elem{
+            display: block;
+            float: left;
+            min-height: 200px;
+            box-sizing: border-box;
+            border-radius: 10px;
+            background-color: #F7FAFC;
+        }
+
+        .clear{
+            display: block;
+            clear: both;
+        }
+
+        #info{
+            width: 19%;
+            margin-right: 10px;
+        }
+
+        #history{
+            width: 60%;
+        }
+
+        #friends{
+            width: 19%;
+            margin-left: 10px;
+        }
+
+        h1{
+            margin: 0;
+            font-size: 20px;
+            font-weight: 700;
+            display: inline-block;
+        }
+        #btn_logout{
+            width: auto;
+            font-family: "Comic Sans MS";
+            font-weight: 500;
+            padding: 0 10px;
+            background-color: lightblue;
+            display: inline-block;
+            border-radius: 5px;
+            position: absolute;
+            right: 0;
+            top: 2px;
+            height: 46px;
+        }
+        ul{
+            list-style-type: none;
+            text-align: center;
+            padding: 0 10px;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="header" style="margin-bottom: 10px">
+        <div class="main_block">
+            <h1>Witcher Project</h1>
+            <button id="btn_logout">Выход</button>
+        </div>
+    </div>
+    <div class="main_block">
+        <div id="info" class="block_elem">
+            <div class="header"><b>Управление</b></div>
+            <ul  style="list-style-type: none">
+                <li><a href="#">Информация о персонаже</a></li>
+            </ul>
+        </div>
+        <div id="history" class="block_elem">
+            <div class="header"><b>Приключения</b></div>
+            <div class="field" style="height: 400px; background-color: gray"></div>
+            <div class="buttons" style="height: 100px"></div>
+        </div>
+        <div id="friends" class="block_elem">
+            <div class="header"><b>Список друзей</b></div>
+            <ul style="" >
+                <li>Друг 1</li>
+                <li>Друг 2</li>
+                <li>Друг 3</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

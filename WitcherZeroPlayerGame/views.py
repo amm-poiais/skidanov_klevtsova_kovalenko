@@ -5,6 +5,7 @@ from WitcherZeroPlayerGame import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
+from WitcherZeroPlayerGame import models
 
 from datetime import date, datetime
 
@@ -22,7 +23,10 @@ def login(request):
             user2 = User.objects.get_by_natural_key(username)
             user2.profile.last_seen = datetime.now()
             auth.login(request, user2)
-            return redirect('/create_witcher/')
+            if user2.profile.witcher is None:
+                return redirect('/create_witcher/')
+            else:
+                return redirect('/home/')
             #return render(request, 'create_witcher.html')
         else:
             return render(request, 'login.html', {'form': form, })
@@ -50,7 +54,25 @@ def register(request):
 
 @login_required(login_url='/login/')
 def create_witcher(request):
-    if request.method == 'GET':
-        return render(request, 'create_witcher.html')
+    if request.method == 'POST':
+        form = forms.CreateWitcherForm(request.POST)
+        if form.is_valid():
+            witcher = models.Witcher(name=form.cleaned_data['name'], age=form.cleaned_data['age'], school=form.cleaned_data['school'], status='Жив')
+            witcher.save()
+            request.user.profile.witcher = witcher
+            request.user.save()
+            return redirect('/home/')
+        else:
+            return redirect('/create_witcher/')
     else:
-        return redirect('/hello_world/')
+        form = forms.CreateWitcherForm()
+        return render(request, 'create_witcher.html', {'form': form, })
+
+
+@login_required(login_url='/login/')
+def home(request):
+    if request.user.profile.witcher is not None:
+        return render(request, 'home.html', {})
+    else:
+        return redirect('/create_witcher/')
+
