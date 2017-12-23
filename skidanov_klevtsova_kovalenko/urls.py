@@ -15,11 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from WitcherZeroPlayerGame import views as witcher_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login/', witcher_views.login),
     path('register/', witcher_views.register),
-    path('create_witcher/', witcher_views.create_witcher)
+    path('create_witcher/', witcher_views.create_witcher),
+    url('logout/', witcher_views.logout),
 ]
