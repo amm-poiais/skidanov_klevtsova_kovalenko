@@ -22,7 +22,37 @@
         </div>
         <div id="history" class="block_elem">
             <div class="header"><b>Приключения</b></div>
-            <div class="field" style="height: 400px; background-color: gray"></div>
+            <div id="event_container" class="field" style="height: 400px; background-color: gray">
+
+            </div>
+            <script>
+                function getEvents(){
+                    $.ajax({
+                        url: '/ajax/get_events/',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            for(i = 0; i < data.events.length; ++i){
+                                var event = data.events[i];
+                                var node = document.createElement("div");
+                                var date = document.createElement("div");
+                                date.setAttribute("class", "event_date");
+                                date.innerHTML = "<p>" + event.date + "</p>";
+                                var message = document.createElement("div");
+                                message.setAttribute("class", "event_message");
+                                message.innerHTML = "<p>" + event.message + "</p>";
+                                node.appendChild(date).appendChild(message);
+                                $("#event_container").appendChild(node);
+                            }
+                        },
+                        error: function(xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            console.log(err.Message);
+                        }
+                    });
+                }
+                setInterval(getEvents, 60000);
+            </script>
             <div class="buttons" style="height: 100px"></div>
         </div>
         <div id="friends" class="block_elem">
@@ -34,5 +64,6 @@
             </ul>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </body>
 </html>

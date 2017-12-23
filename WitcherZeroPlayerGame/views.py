@@ -6,6 +6,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
 from WitcherZeroPlayerGame import models
+from django.http import JsonResponse
 
 from datetime import date, datetime
 
@@ -85,3 +86,15 @@ def home(request):
     else:
         return redirect('/create_witcher/')
 
+
+@login_required(login_url='/login/')
+def get_events(request):
+    events = []
+    for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher):
+        events.append({'date': event.date, 'message': event.event})
+    request.user.profile.last_seen = datetime.now()
+    request.user.save()
+    data = {
+        'events': events,
+    }
+    return JsonResponse(data)
