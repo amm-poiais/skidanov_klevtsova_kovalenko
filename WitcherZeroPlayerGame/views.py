@@ -55,6 +55,11 @@ def register(request):
         form = forms.UserRegisterForm()
         return render(request, 'register.html', {'form': form, })
 
+@login_required(login_url='/login/')
+def logout(request):
+    auth.logout(request)
+    return redirect('/login/')
+
 
 @login_required(login_url='/login/')
 def create_witcher(request):
