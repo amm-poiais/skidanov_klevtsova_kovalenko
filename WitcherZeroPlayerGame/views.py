@@ -12,6 +12,10 @@ from datetime import date, datetime
 # Create your views here.
 
 
+def main(request):
+    return redirect('/home/')
+
+
 def login(request):
     if request.method == 'POST':
         form = forms.UserLoginForm(request.POST)

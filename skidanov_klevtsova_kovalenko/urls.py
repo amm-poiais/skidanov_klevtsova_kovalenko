@@ -22,5 +22,6 @@ urlpatterns = [
     url('login/', witcher_views.login),
     url('register/', witcher_views.register),
     url('create_witcher/', witcher_views.create_witcher),
-    url('home/', witcher_views.home)
+    url('home/', witcher_views.home),
+    url('', witcher_views.main)
 ]
