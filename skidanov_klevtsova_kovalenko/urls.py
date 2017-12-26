@@ -14,14 +14,17 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+
 from django.conf.urls import url
 from WitcherZeroPlayerGame import views as witcher_views
 
 urlpatterns = [
+    url('ajax/get_events/', witcher_views.get_events),
+    url('logout/', witcher_views.logout),
     url('admin/', admin.site.urls),
     url('login/', witcher_views.login),
     url('register/', witcher_views.register),
     url('create_witcher/', witcher_views.create_witcher),
     url('home/', witcher_views.home),
-    url('', witcher_views.main)
+    url('', witcher_views.main),
 ]
