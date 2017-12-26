@@ -22,7 +22,7 @@
         </div>
         <div id="history" class="block_elem">
             <div class="header"><b>Приключения</b></div>
-            <div id="event_container" class="field" style="height: 400px; background-color: gray">
+            <div id="event_container" class="field">
 
             </div>
             <script>
@@ -32,18 +32,29 @@
                         dataType: 'json',
                         success: function (data) {
                             console.log(data);
-                            for(i = 0; i < data.events.length; ++i){
+                            $('.last').addClass('prelast');
+                            var prelast =  $('.prelast');
+                            prelast.removeClass('last');
+                            var lasts = prelast.text();
+                            console.log(lasts);
+                            for(var i = 0; i < data.events.length; ++i){
                                 var event = data.events[i];
-                                var node = document.createElement("div");
-                                var date = document.createElement("div");
-                                date.setAttribute("class", "event_date");
-                                date.innerHTML = "<p>" + event.date + "</p>";
-                                var message = document.createElement("div");
-                                message.setAttribute("class", "event_message");
-                                message.innerHTML = "<p>" + event.message + "</p>";
-                                node.appendChild(date).appendChild(message);
-                                $("#event_container").append(node);
+                                if (lasts.indexOf(event.date) === -1)
+                                {
+                                    var node = document.createElement("div");
+                                    var date = document.createElement("div");
+                                    date.setAttribute("class", "event_date");
+                                    date.innerHTML = "<p>" + event.date + "</p>";
+                                    var message = document.createElement("div");
+                                    message.setAttribute("class", "event_message");
+                                    message.innerHTML = "<p>" + event.message + "</p>";
+                                    node.appendChild(date);
+                                    node.appendChild(message);
+                                    $("#event_container").append(node);
+                                }
                             }
+                            prelast.removeClass('prelast');
+                            $('.event_date').slice(-15).addClass('last');
                         },
                         error: function(xhr, status, error) {
                             var err = eval("(" + xhr.responseText + ")");
@@ -51,7 +62,7 @@
                         }
                     });
                 }
-                setInterval(getEvents, 60000);
+                setInterval(getEvents, 30000);
             </script>
             <div class="buttons" style="height: 100px"></div>
         </div>

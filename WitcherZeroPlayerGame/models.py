@@ -48,7 +48,7 @@ class WitcherSchool(models.Model):
 class Weapon(models.Model):
     name = models.CharField(max_length=40)
     owned_by_school = models.BooleanField()
-    school = models.ForeignKey(WitcherSchool, models.PROTECT)
+    school = models.ForeignKey(WitcherSchool, models.PROTECT, null=True)
     weapon_type = models.ForeignKey(WeaponType, models.PROTECT)
     price = models.IntegerField()
     damage = models.IntegerField()

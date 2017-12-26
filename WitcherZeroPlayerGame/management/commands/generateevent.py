@@ -25,6 +25,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def generate_positive_event(user):
+        # TODO: добавить выпадение брони, средства
         positive_event_type = randint(0, 1)
         message = ""
         if positive_event_type == 0:

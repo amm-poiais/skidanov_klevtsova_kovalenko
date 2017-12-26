@@ -72,3 +72,9 @@ ul{
     padding: 0 10px;
     margin: 0;
 }
+
+#event_container{
+    height: 400px;
+    background-color: lightgray;
+    overflow-y: scroll;
+}

@@ -92,8 +92,9 @@ def home(request):
 @login_required(login_url='/login/')
 def get_events(request):
     events = []
-    for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher):
+    for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('-date')[:10]:
         events.append({'date': event.date, 'message': event.event})
+    events.reverse()
     request.user.profile.last_seen = datetime.now()
     request.user.save()
     data = {
