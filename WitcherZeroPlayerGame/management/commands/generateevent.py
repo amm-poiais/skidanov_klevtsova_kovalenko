@@ -9,7 +9,7 @@ from random import randint
 class Command(BaseCommand):
     @staticmethod
     def generate_neutral_event(user):
-        count = models.Event.objects.aggregate(count=Count('id'))['count']
+        count = models.Event.objects.count()
         random_index = randint(0, count - 1)
         event = models.Event.objects.all()[random_index]
         witcher_event = models.WitcherEvent(witcher=user.profile.witcher, event=event.event, date=datetime.now())
@@ -19,7 +19,7 @@ class Command(BaseCommand):
     def get_random_weapon(witcher):
         possible_weapon = models.Weapon.objects.filter(owned_by_school=False).union(
             models.Weapon.objects.filter(owned_by_school=True, school=witcher.school))
-        count = possible_weapon.aggregate(count=Count('id'))['count']
+        count = possible_weapon.count()
         random_index = randint(0, count - 1)
         return possible_weapon[random_index]
 
@@ -56,9 +56,8 @@ class Command(BaseCommand):
             event_type = randint(0, 2)
             if event_type == 0:
                 self.generate_neutral_event(user)
+            elif event_type == 1:
+                self.generate_positive_event(user)
             else:
-                if event_type == 1:
-                    self.generate_positive_event(user)
-                else:
-                    self.generate_negative_event(user)
+                self.generate_negative_event(user)
         self.stdout.write('Finished')
