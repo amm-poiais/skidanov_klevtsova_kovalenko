@@ -127,6 +127,10 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
+                    if ('error' in data) {
+                        alert(data.error);
+                        return;
+                    }
                     var event = data.event;
                     var node = document.createElement("div");
                     var date = document.createElement("div");
@@ -163,6 +167,10 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
+                    if ('error' in data) {
+                        alert(data.error);
+                        return;
+                    }
                     var event = data.event;
                     var node = document.createElement("div");
                     var date = document.createElement("div");
@@ -199,6 +207,10 @@
                 dataType: 'json',
                 success: function (data) {
                     console.log(data);
+                    if ('error' in data) {
+                        alert(data.error);
+                        return;
+                    } 
                     var event = data.event;
                     var node = document.createElement("div");
                     var date = document.createElement("div");
