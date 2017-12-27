@@ -191,3 +191,12 @@ def respawn(request):
         request.user.save()
         return JsonResponse({'is_respawned': True})
     return JsonResponse({'is_respawned': False})
+
+
+@login_required(login_url='/login/')
+def witcher_info(request):
+    if request.user.profile.witcher is not None:
+        witcher = request.user.profile.witcher
+        return render(request, 'witcher_info.html', {'witcher': witcher, })
+    else:
+        return redirect('/create_witcher/')
