@@ -1,0 +1,30 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.AlchemyType",
+    "pk": 1,
+    "fields": {
+      "name": "Масло"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.AlchemyType",
+    "pk": 2,
+    "fields": {
+      "name": "Отвар"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.AlchemyType",
+    "pk": 3,
+    "fields": {
+      "name": "Эликсир"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.AlchemyType",
+    "pk": 4,
+    "fields": {
+      "name": "Бомба"
+    }
+  }
+]
