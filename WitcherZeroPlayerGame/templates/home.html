@@ -71,12 +71,12 @@
             </script>
             <div class="buttons" style="height: 150px;">
                 <div class="btns_left">
-                    <button id="btn_good" onclick="Good()">Подарить подарок</button>
-                    <button id="btn_rand" onclick="Random()">Мне повезет!</button>
+                    <button id="btn_good" onclick="Good()" {% if not is_alive %} disabled {% endif %}>Подарить подарок</button>
+                    <button id="btn_rand" onclick="Random()" {% if not is_alive %} disabled {% endif %}>Мне повезет!</button>
                 </div>
                 <div class="btns_right">
-                    <button id="btn_bad" onclick="Bad()">Наслать беду</button>
-                    <button id="btn_wake" disabled>Воскресить</button>
+                    <button id="btn_bad" onclick="Bad()" {% if not is_alive %} disabled {% endif %}>Наслать беду</button>
+                    <button id="btn_wake" {% if is_alive %} disabled {% endif %}>Воскресить</button>
                 </div>
             </div>
         </div>
@@ -108,6 +108,17 @@
                     node.appendChild(message);
                     $("#event_container").append(node);
                     $('.event_date').slice(-15).addClass('last');
+                    if (data.is_alive) {
+                        $("#btn_good").removeAttr("disabled");
+                        $("#btn_bad").removeAttr("disabled");
+                        $("#btn_rand").removeAttr("disabled");
+                        $("#btn_wake").setAttribute("disabled", "disabled");
+                    } else {
+                        $("#btn_good").setAttribute("disabled", "disabled");
+                        $("#btn_bad").setAttribute("disabled", "disabled");
+                        $("#btn_rand").setAttribute("disabled", "disabled");
+                        $("#btn_wake").removeAttr("disabled");
+                    }
                 },
                 error: function(xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");
@@ -133,6 +144,17 @@
                     node.appendChild(message);
                     $("#event_container").append(node);
                     $('.event_date').slice(-15).addClass('last');
+                    if (data.is_alive) {
+                        $("#btn_good").removeAttr("disabled");
+                        $("#btn_bad").removeAttr("disabled");
+                        $("#btn_rand").removeAttr("disabled");
+                        $("#btn_wake").setAttribute("disabled", "disabled");
+                    } else {
+                        $("#btn_good").setAttribute("disabled", "disabled");
+                        $("#btn_bad").setAttribute("disabled", "disabled");
+                        $("#btn_rand").setAttribute("disabled", "disabled");
+                        $("#btn_wake").removeAttr("disabled");
+                    }
                 },
                 error: function(xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");
@@ -158,6 +180,32 @@
                     node.appendChild(message);
                     $("#event_container").append(node);
                     $('.event_date').slice(-15).addClass('last');
+                    if (data.is_alive) {
+                        $("#btn_good").removeAttr("disabled");
+                        $("#btn_bad").removeAttr("disabled");
+                        $("#btn_rand").removeAttr("disabled");
+                        $("#btn_wake").setAttribute("disabled", "disabled");
+                    } else {
+                        $("#btn_good").setAttribute("disabled", "disabled");
+                        $("#btn_bad").setAttribute("disabled", "disabled");
+                        $("#btn_rand").setAttribute("disabled", "disabled");
+                        $("#btn_wake").removeAttr("disabled");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    console.log(err.Message);
+                }
+            })
+        }
+        function Respawn(){
+            $.ajax({
+                url: 'ajax/respawn/',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.is_respawned){
+                        $("#btn_wake").setAttribute("disabled", "disabled")
+                    }
                 },
                 error: function(xhr, status, error) {
                     var err = eval("(" + xhr.responseText + ")");

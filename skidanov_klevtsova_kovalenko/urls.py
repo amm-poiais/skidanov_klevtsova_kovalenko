@@ -23,6 +23,7 @@ urlpatterns = [
     url('ajax/generate_positive_event/', witcher_views.generate_positive_event),
     url('ajax/generate_negative_event/', witcher_views.generate_negative_event),
     url('ajax/generate_random_event/', witcher_views.generate_random_event),
+    url('ajax/respawn/', witcher_views.respawn),
     url('logout/', witcher_views.logout),
     url('admin/', admin.site.urls),
     url('login/', witcher_views.login),

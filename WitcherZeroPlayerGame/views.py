@@ -91,7 +91,10 @@ def home(request):
         for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('-date')[:10]:
             events.append({'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event})
         events.reverse()
-        return render(request, 'home.html', {'events': events})
+        return render(request, 'home.html', {
+            'events': events,
+            'is_alive': request.user.profile.witcher.status != "Мертв"
+        })
     else:
         return redirect('/create_witcher/')
 
@@ -106,6 +109,7 @@ def get_events(request):
     request.user.save()
     data = {
         'events': events,
+        'is_alive': request.user.profile.witcher.status != "Мертв"
     }
     return JsonResponse(data)
 
@@ -118,7 +122,10 @@ def generate_positive_event(request):
         request.user.save()
         event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
-            {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
+            {
+                'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event},
+                'is_alive': request.user.profile.witcher.status != "Мертв"
+            })
     else:
         return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
 
@@ -131,7 +138,10 @@ def generate_negative_event(request):
         request.user.save()
         event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
-            {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
+            {
+                'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event},
+                'is_alive': request.user.profile.witcher.status != "Мертв"
+            })
     else:
         return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
 
@@ -148,6 +158,18 @@ def generate_random_event(request):
         request.user.save()
         event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
-            {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
+            {
+                'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event},
+                'is_alive': request.user.profile.witcher.status != "Мертв"
+            })
     else:
         return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
+
+
+@login_required(login_url='/login/')
+def respawn(request):
+    if request.user.profile.witcher.status == "Мертв":
+        request.user.profile.witcher.status = "Жив"
+        request.user.save()
+        return JsonResponse({'is_respawned': True})
+    return JsonResponse({'is_respawned': False})
