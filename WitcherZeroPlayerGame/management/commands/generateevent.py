@@ -24,8 +24,23 @@ class Command(BaseCommand):
         return possible_weapon[random_index]
 
     @staticmethod
+    def get_random_armor(witcher):
+        possible_armor = models.Armor.objects.filter(owned_by_school=False).union(
+            models.Armor.objects.filter(owned_by_school=True, school=witcher.school))
+        count = possible_armor.aggregate(count=Count('id'))['count']
+        random_index = randint(0, count - 1)
+        return possible_armor[random_index]
+
+    @staticmethod
+    def get_random_alchemy():
+        possible_alchemy = models.Alchemy.objects.all()
+        count = possible_alchemy.aggregate(count=Count('id'))['count']
+        random_index = randint(0, count - 1)
+        return possible_alchemy[random_index]
+
+    @staticmethod
     def generate_positive_event(user):
-        # TODO: добавить выпадение брони, средства
+        # TODO: изменить диапазон типов после добавления в базу брони и предметов
         positive_event_type = randint(0, 1)
         message = ""
         if positive_event_type == 0:
@@ -38,6 +53,27 @@ class Command(BaseCommand):
                 having_weapon = models.HavingWeapon.objects.create(witcher=user.profile.witcher, weapon=weapon, count=1)
                 having_weapon.save()
             message = "Нашел " + weapon.name + " в кустах... Может, все же есть бог на свете?"
+        elif positive_event_type == 1:
+            armor = Command.get_random_armor(user.profile.witcher)
+            having_armor = models.HavingArmor.objects.filter(witcher=user.profile.witcher, armor=armor)
+            if having_armor.count() != 0:
+                having_armor.first().count += 1
+                having_armor.first().save()
+            else:
+                having_armor = models.HavingArmor.objects.create(witcher=user.profile.witcher, armor=armor, count=1)
+                having_armor.save()
+            message = "Нашел труп, а на нем - " + armor.name + ". Пахнет не очень, но зато бесплатно!"
+        elif positive_event_type == 2:
+            alchemy = Command.get_random_alchemy()
+            having_alchemy = models.HavingAlchemy.objects.filter(witcher=user.profile.witcher, alchemy=alchemy)
+            if having_alchemy.count() != 0:
+                having_alchemy.first().count += 1
+                having_alchemy.first().save()
+            else:
+                having_alchemy = models.HavingAlchemy.objects.create(witcher=user.profile.witcher, alchemy=alchemy, count=1)
+                having_alchemy.save()
+            message = "Что-то больно ударило по голове. Оказалось - " + alchemy.name \
+                      + ". Пожалуй, оставлю себе, пригодится."
         else:
             message = "Какое-то хорошее событие!"
         witcher_event = models.WitcherEvent(witcher=user.profile.witcher, event=message, date=datetime.now())
