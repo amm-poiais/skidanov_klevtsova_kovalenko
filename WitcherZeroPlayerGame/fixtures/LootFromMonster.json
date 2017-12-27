@@ -1,0 +1,281 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 1,
+    "fields": {
+      "monster": 1,
+	  "ingridient":1,
+	  "probability":50
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 2,
+    "fields": {
+      "monster": 1,
+	  "ingridient":5,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 3,
+    "fields": {
+      "monster": 1,
+	  "ingridient":8,
+	  "probability":80
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 4,
+    "fields": {
+      "monster": ,
+	  "ingridient":,
+	  "probability":
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 5,
+    "fields": {
+      "monster": 2,
+	  "ingridient":2,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 6,
+    "fields": {
+      "monster": 2,
+	  "ingridient":3,
+	  "probability":70
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 7,
+    "fields": {
+      "monster": 3,
+	  "ingridient":9,
+	  "probability":100
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 8,
+    "fields": {
+      "monster": 4,
+	  "ingridient":4,
+	  "probability":80
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 9,
+    "fields": {
+      "monster": 4,
+	  "ingridient":5,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 10,
+    "fields": {
+      "monster":4,
+	  "ingridient":7,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 11,
+    "fields": {
+      "monster": 4,
+	  "ingridient":10,
+	  "probability":50
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 12,
+    "fields": {
+      "monster": 5,
+	  "ingridient":10,
+	  "probability":30
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 13,
+    "fields": {
+      "monster": 5,
+	  "ingridient":9,
+	  "probability":20
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 14,
+    "fields": {
+      "monster": 5,
+	  "ingridient":2,
+	  "probability":70
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 15,
+    "fields": {
+      "monster": 6,
+	  "ingridient":7,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 16,
+    "fields": {
+      "monster": 6,
+	  "ingridient":1,
+	  "probability":100
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 17,
+    "fields": {
+      "monster": 7,
+	  "ingridient":7,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 18,
+    "fields": {
+      "monster": 7,
+	  "ingridient":3,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 19,
+    "fields": {
+      "monster": 8,
+	  "ingridient":10,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 20,
+    "fields": {
+      "monster": 9,
+	  "ingridient":4,
+	  "probability":40
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 21,
+    "fields": {
+      "monster": 9,
+	  "ingridient":7,
+	  "probability":20
+    }
+  },  
+  {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 22,
+    "fields": {
+      "monster": 9,
+	  "ingridient":5,
+	  "probability":30
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 23,
+    "fields": {
+      "monster": 10,
+	  "ingridient":1,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 24,
+    "fields": {
+      "monster": 10,
+	  "ingridient":10,
+	  "probability":80
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 25,
+    "fields": {
+      "monster": 11,
+	  "ingridient":2,
+	  "probability":70
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 26,
+    "fields": {
+      "monster": 11,
+	  "ingridient":6,
+	  "probability":80
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 27,
+    "fields": {
+      "monster": 12,
+	  "ingridient":6,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 28,
+    "fields": {
+      "monster": 12,
+	  "ingridient":4,
+	  "probability":40
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 29,
+    "fields": {
+      "monster": 12,
+	  "ingridient":8,
+	  "probability":60
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 30,
+    "fields": {
+      "monster": 13,
+	  "ingridient":9,
+	  "probability":50
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.LootFromMonster",
+    "pk": 31,
+    "fields": {
+      "monster": 14,
+	  "ingridient":2,
+	  "probability":50
+    }
+  }
+]
