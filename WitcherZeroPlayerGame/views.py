@@ -91,7 +91,11 @@ def home(request):
         for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('-date')[:10]:
             events.append({'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event})
         events.reverse()
-        return render(request, 'home.html', {'events': events})
+        friends = []
+        # generateevent.Command.generate_meeting_event(request.user)
+        for friend in models.WitchersRelationship.objects.filter(first_witcher=request.user.profile.witcher):
+            friends.append({'friend': friend.second_witcher.name, 'relation': friend.relationship.name})
+        return render(request, 'home.html', {'events': events, 'friends': friends})
     else:
         return redirect('/create_witcher/')
 
@@ -107,6 +111,18 @@ def get_events(request):
     data = {
         'events': events,
     }
+    return JsonResponse(data)
+
+
+@login_required(login_url='/login/')
+def get_friends(request):
+    # generateevent.Command.generate_meeting_event(request.user)
+    friends = []
+    for friend in models.WitchersRelationship.objects.filter(first_witcher=request.user.profile.witcher):
+        friends.append({'friend': friend.second_witcher.name, 'relation': friend.relationship.name})
+    request.user.profile.last_seen = datetime.now()
+    request.user.save()
+    data = {'friends': friends}
     return JsonResponse(data)
 
 

@@ -1,0 +1,30 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.Relation",
+    "pk": 1,
+    "fields": {
+      "name" : "дружба"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Relation",
+    "pk": 2,
+    "fields": {
+      "name" : "неприязнь"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Relation",
+    "pk": 3,
+    "fields": {
+      "name" : "ненависть"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Relation",
+    "pk": 4,
+    "fields": {
+      "name" : "любовь"
+    }
+  }
+]

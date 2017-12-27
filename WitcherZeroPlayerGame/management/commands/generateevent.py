@@ -49,7 +49,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def get_random_stranger(witcher):
-        strangers = models.Witcher.objects.all().difference(witcher)
+        strangers = models.Witcher.objects.all().difference(models.Witcher.objects.filter(pk=witcher.pk))
         count = strangers.count()
         random_index = randint(0, count - 1)
         return strangers[random_index]
@@ -135,7 +135,7 @@ class Command(BaseCommand):
         witcher = user.profile.witcher
         stranger = Command.get_random_stranger(witcher)
         rel_count = models.Relation.objects.all().count()
-        if not (models.WitchersRelationship.objects.filter(first_witcher=witcher, second_witcher=stranger).count() == 0 &
+        if (models.WitchersRelationship.objects.filter(first_witcher=witcher, second_witcher=stranger).count() == 0 &
                 models.WitchersRelationship.objects.filter(first_witcher=stranger, second_witcher=witcher).count() == 0):
             rel_idx = randint(0, rel_count)
             rel = models.Relation.objects.all()[rel_idx]
@@ -143,8 +143,8 @@ class Command(BaseCommand):
             rel2 = models.WitchersRelationship.objects.create(first_witcher=stranger, second_witcher=witcher, relationship=rel)
             rel1.save()
             rel2.save()
-            message1 = 'Встретил ' + stranger.name + '. Теперь у нас с ним ' + rel.name + '.'
-            message2 = 'Встретил ' + witcher.name + '. Теперь у нас с ним ' + rel.name + '.'
+            message1 = 'В пути мне встретился ' + stranger.name + '. Теперь у нас с ним взаимная ' + rel.name + '.'
+            message2 = 'В пути мне встретился ' + witcher.name + '. Теперь у нас с ним взаимная ' + rel.name + '.'
             witcher_event_1 = models.WitcherEvent(witcher=witcher, event=message1, date=datetime.now())
             witcher_event_2 = models.WitcherEvent(witcher=stranger, event=message2, date=datetime.now())
             witcher_event_1.save()
