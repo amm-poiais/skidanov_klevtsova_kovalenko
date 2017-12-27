@@ -1,0 +1,112 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 1,
+    "fields": {
+      "name": "Акетон",
+	  "owned_by_school": 0
+	  "school": null
+	  "price":10,
+      "protection":17  
+    }
+  },
+  { 
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 2,
+    "fields": {
+      "name": "Бригантина",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "price":10,
+      "protection":10  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 3,
+    "fields": {
+      "name": "Гамбезон",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "price":16,
+      "protection":20   
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 4,
+    "fields": {
+      "name": "Темерский доспех",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "price":13,
+      "protection":13  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 5,
+    "fields": {
+      "name": "Доспех",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "price":14,
+      "protection":19  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 6,
+    "fields": {
+      "name": "Тяжелый доспех",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "price":13,
+      "protection":11  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 7,
+    "fields": {
+      "name": "Панцирь",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "price":13,
+      "protection":18  
+    }
+  },  
+  {
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 8,
+    "fields": {
+      "name": "Доспех Школы Волка",
+	  "owned_by_school": 1,
+	  "school": 1,
+	  "price":15,
+      "protection":18  
+    }
+  },   
+  {
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 9,
+    "fields": {
+      "name": "Доспех Школы Кота",
+	  "owned_by_school": 1,
+	  "school": 2,
+	  "price":15,
+      "protection":23   
+    }
+  },
+  { 
+    "model": "WitcherZeroPlayerGame.Armor",
+    "pk": 10,
+    "fields": {
+      "name": "Доспех Школы Змеи",
+	  "owned_by_school": 1,
+	  "school": 3,
+	  "price":16,
+      "protection":18  
+    }
+  }
+]
