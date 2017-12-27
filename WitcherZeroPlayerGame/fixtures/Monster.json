@@ -5,7 +5,8 @@
     "fields": {
       "name": "Гуль",
 	  "monster_type":1,
-	  "monster_class":5
+	  "monster_class":5,
+      "strength": 20
     }
   },
   {
@@ -14,7 +15,8 @@
     "fields": {
       "name": "Эхна",
 	  "monster_type":1,
-	  "monster_class":2
+	  "monster_class":2,
+      "strength": 27
     }
   },
   {
@@ -23,7 +25,8 @@
     "fields": {
       "name": "Гнилец",
 	  "monster_type":1,
-	  "monster_class":5
+	  "monster_class":5,
+      "strength": 30
     }
   },
   {
@@ -32,7 +35,8 @@
     "fields": {
       "name": "Тримп",
 	  "monster_type":1,
-	  "monster_class":5
+	  "monster_class":5,
+      "strength": 40
     }
   },
   {
@@ -41,7 +45,8 @@
     "fields": {
       "name": "Дух",
 	  "monster_type":1,
-	  "monster_class":3
+	  "monster_class":3,
+      "strength": 45
     }
   },
   {
@@ -50,7 +55,8 @@
     "fields": {
       "name": "Эриния",
 	  "monster_type":1,
-	  "monster_class":4
+	  "monster_class":4,
+      "strength": 30
     }
   },
   {
@@ -59,7 +65,8 @@
     "fields": {
       "name": "Волк",
 	  "monster_type":2,
-	  "monster_class":1
+	  "monster_class":1,
+      "strength": 15
     }
   },
   {
@@ -68,7 +75,8 @@
     "fields": {
       "name": "Медведь",
 	  "monster_type":2,
-	  "monster_class":1
+	  "monster_class":1,
+      "strength": 30
     }
   },
   {
@@ -77,7 +85,8 @@
     "fields": {
       "name": "Куролиск",
 	  "monster_type":2,
-	  "monster_class":1
+	  "monster_class":1,
+      "strength": 60
     }
   },
   {
@@ -86,7 +95,8 @@
     "fields": {
       "name": "Ехидна",
 	  "monster_type":2,
-	  "monster_class":2
+	  "monster_class":2,
+      "strength": 35
     }
   },
   {
@@ -95,7 +105,8 @@
     "fields": {
       "name": "Утопленница",
 	  "monster_type":2,
-	  "monster_class":3
+	  "monster_class":3,
+      "strength": 40
     }
   },
   {
@@ -104,7 +115,8 @@
     "fields": {
       "name": "Арахн",
 	  "monster_type":2,
-	  "monster_class":4
+	  "monster_class":4,
+      "strength": 35
     }
   },
   {
@@ -113,7 +125,8 @@
     "fields": {
       "name": "Кирена",
 	  "monster_type":2,
-	  "monster_class":4
+	  "monster_class":4,
+      "strength": 50
     }
   },
   {
@@ -122,7 +135,8 @@
     "fields": {
       "name": "Хран",
 	  "monster_type":2,
-	  "monster_class":2
+	  "monster_class":2,
+      "strength": 60
     }
   }   
 ]

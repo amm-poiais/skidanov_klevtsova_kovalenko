@@ -3,36 +3,204 @@
     "model": "WitcherZeroPlayerGame.Weapon",
     "pk": 1,
     "fields": {
-      "name" : "Обычный меч",
-      "owned_by_school":  0,
-      "school": null,
-      "weapon_type": 1,
-      "price": 10,
-      "damage": 30
+      "name": "Девин",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":18,
+      "damage":19  
     }
   },
-  {
+  { 
     "model": "WitcherZeroPlayerGame.Weapon",
     "pk": 2,
     "fields": {
-      "name" : "Топор",
-      "owned_by_school":  0,
-      "school": null,
-      "weapon_type": 1,
-      "price": 15,
-      "damage": 40
+      "name": "Дейра",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":14,
+      "damage":23  
     }
   },
   {
     "model": "WitcherZeroPlayerGame.Weapon",
     "pk": 3,
     "fields": {
-      "name" : "Гаэтаэль",
-      "owned_by_school":  0,
-      "school": null,
-      "weapon_type": 2,
-      "price": 30,
-      "damage": 50
+      "name": "Гвихир",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":24,
+      "damage":26  
     }
-  }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 4,
+    "fields": {
+      "name": "Негоциатор",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":25,
+      "damage":44  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 5,
+    "fields": {
+      "name": "Анафема",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":23,
+      "damage":56  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 6,
+    "fields": {
+      "name": "Секира",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":16,
+      "damage":18  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 7,
+    "fields": {
+      "name": "Молот",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":14,
+      "damage":10  
+    }
+  },  
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 8,
+    "fields": {
+      "name": "Топор",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":11,
+      "damage":12  
+    }
+  },   
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 9,
+    "fields": {
+      "name": "Гешефт",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":2,
+	  "price":14,
+      "damage":16  
+    }
+  },
+  { 
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 10,
+    "fields": {
+      "name": "Дергдейт",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":2,
+	  "price":12,
+      "damage":21  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 11,
+    "fields": {
+      "name": "Луна",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":2,
+	  "price":21,
+      "damage":12  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 12,
+    "fields": {
+      "name": "Стальной меч школы Волка",
+	  "owned_by_school": 1,
+	  "school": 1,
+	  "weapon_type":1,
+	  "price":13,
+      "damage":15 
+    }
+  },
+  { 
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 13,
+    "fields": {
+      "name": "Стальной меч школы Кота",
+	  "owned_by_school": 1,
+	  "school": 2,
+	  "weapon_type":1,
+	  "price":16,
+      "damage":10  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 14,
+    "fields": {
+      "name": "Стальной меч школы Змеи",
+	  "owned_by_school": 1,
+	  "school": 3,
+	  "weapon_type":1,
+	  "price":67,
+      "damage":44  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 15,
+    "fields": {
+      "name": "Серебряный меч школы Волка",
+	  "owned_by_school": 1,
+	  "school": 1,
+	  "weapon_type":2,
+	  "price":56,
+      "damage":50  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 16,
+    "fields": {
+      "name": "Серебряный меч школы Кота",
+	  "owned_by_school": 1,
+	  "school": 2,
+	  "weapon_type":2,
+	  "price":68,
+      "damage":60  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 17,
+    "fields": {
+      "name": "Серебряный меч школы Змеи",
+	  "owned_by_school": 1,
+	  "school": 3,
+	  "weapon_type":2,
+	  "price":54,
+      "damage":56
+    }
+  }	
 ]
