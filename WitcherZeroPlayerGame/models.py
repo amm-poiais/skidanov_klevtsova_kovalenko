@@ -19,10 +19,11 @@ class Monster(models.Model):
     name = models.CharField(max_length=40)
     monster_type = models.ForeignKey(MonsterType, models.PROTECT)
     monster_class = models.ForeignKey(MonsterClass, models.PROTECT)
+    strength = models.IntegerField()
 
-
+# 0 - не уязвим, 1 - уязвим
 class DamagePerc(models.Model):
-    name = models.CharField(max_length=20)
+    value = models.IntegerField()
 
 
 class WeaponType(models.Model):

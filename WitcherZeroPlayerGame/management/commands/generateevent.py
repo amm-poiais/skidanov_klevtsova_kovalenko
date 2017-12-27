@@ -4,6 +4,7 @@ from datetime import datetime, timedelta
 from WitcherZeroPlayerGame import models
 from django.db.models.aggregates import Count
 from random import randint
+from django.db.models import Max
 
 
 class Command(BaseCommand):
@@ -37,6 +38,13 @@ class Command(BaseCommand):
         count = possible_alchemy.aggregate(count=Count('id'))['count']
         random_index = randint(0, count - 1)
         return possible_alchemy[random_index]
+
+    @staticmethod
+    def get_random_monster():
+        possible_monster = models.Monster.objects.all()
+        count = possible_monster.aggregate(count=Count('id'))['count']
+        random_index = randint(0, count - 1)
+        return possible_monster[random_index]
 
     @staticmethod
     def generate_positive_event(user):
@@ -81,7 +89,35 @@ class Command(BaseCommand):
 
     @staticmethod
     def generate_negative_event(user):
-        message = 'Какое-то плохое событие!'
+        # wither = user.profile.witcher
+        # monster = Command.get_random_monster()
+        # monster_chance = monster.strength
+        # max_dam_per = models.DamagePerc.objects.order_by('-value').first()
+        # monster_weap_rel = models.MonsterWeaponTypeRelation.objects\
+        #     .filter(monster=monster, damage_perc=max_dam_per)
+        # monster_dam_rel = models.MonsterDamageTypePerc.objects \
+        #     .filter(monster=monster, damage_perc=max_dam_per)
+        # witcher_chance = 100
+        # possible_armor = models.HavingArmor.objects.filter(witcher=wither).select_related('armor')
+        # if possible_armor.count() != 0:
+        #     witcher_chance += possible_armor.aggregate(Max('protection'))
+        # possible_weapon = models.HavingWeapon.objects.filter(witcher=wither).select_related('weapon')
+        # possible_weapon = possible_weapon.filter(weapon__weapon_type=monster_weap_rel.first().weapon_type)
+        # if possible_weapon.count() != 0:
+        #     witcher_chance += possible_weapon.aggregate(Max('damage'))
+        # possible_alchemy = models.HavingAlchemy.objects.filter(witcher=wither).select_related('alchemy')
+        # possible_alchemy = possible_alchemy.filter(alchemy__damage_type=monster_dam_rel)
+        # for al in possible_alchemy:
+        #     witcher_chance += 5
+        # if monster_chance/witcher_chance >= 1:
+        #     message = monster.name + ' напал со спины и откусил ползадницы. Отполз в кусты зализывать раны.'
+        # else:
+        #     random = randint(0, 100)
+        #     if random/100 < monster_chance/witcher_chance:
+        #         message = monster.name + ' победил меня, хоть и в не очень честном бою. В следующий раз я ему задам!'
+        #     else:
+        #         message = monster.name + ' напал и думал, что будет легко. Но я показал ему, где утопцы зимуют!'
+        message = 'Случилось что-то плохое. Очень плохое.'
         witcher_event = models.WitcherEvent(witcher=user.profile.witcher, event=message, date=datetime.now())
         witcher_event.save()
 
