@@ -109,7 +109,7 @@ class Command(BaseCommand):
                 witcher_chance += possible_weapon.aggregate(Max('damage'))
         possible_alchemy = models.HavingAlchemy.objects.filter(witcher=wither).select_related('alchemy')
         if possible_alchemy.count() != 0:
-            possible_alchemy = possible_alchemy.filter(alchemy__damage_type=monster_dam_rel)
+            possible_alchemy = possible_alchemy.filter(alchemy__damage_type=monster_dam_rel.first().damage_rype)
         for al in possible_alchemy:
             witcher_chance += 5
         if monster_chance/witcher_chance >= 1:
