@@ -1,0 +1,218 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 1,
+    "fields": {
+      "name": "Девин",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  { 
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 2,
+    "fields": {
+      "name": "Дейра",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 3,
+    "fields": {
+      "name": "Гвихир",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 4,
+    "fields": {
+      "name": "Негоциатор",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 5,
+    "fields": {
+      "name": "Анафема",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 6,
+    "fields": {
+      "name": "Секира",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 7,
+    "fields": {
+      "name": "Молот",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },  
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 7,
+    "fields": {
+      "name": "Топор",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },   
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 8,
+    "fields": {
+      "name": "Гешефт",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":2,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  { 
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 9,
+    "fields": {
+      "name": "Дергдейт",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":2,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 10,
+    "fields": {
+      "name": "Луна",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":2,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 11,
+    "fields": {
+      "name": "Негоциатор",
+	  "owned_by_school": 0,
+	  "school": null,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 12,
+    "fields": {
+      "name": "Стальной меч школы Волка",
+	  "owned_by_school": 1,
+	  "school": 1,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  { 
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 13,
+    "fields": {
+      "name": "Стальной меч школы Кота",
+	  "owned_by_school": 1,
+	  "school": 2,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 14,
+    "fields": {
+      "name": "Стальной меч школы Змеи",
+	  "owned_by_school": 1,
+	  "school": 3,
+	  "weapon_type":1,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 15,
+    "fields": {
+      "name": "Серебряный меч школы Волка",
+	  "owned_by_school": 1,
+	  "school": 1,
+	  "weapon_type":2,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 16,
+    "fields": {
+      "name": "Серебряный меч школы Кота",
+	  "owned_by_school": 1,
+	  "school": 2,
+	  "weapon_type":2,
+	  "price":1,
+      "damage":1  
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 17,
+    "fields": {
+      "name": "Серебряный меч школы Змеи",
+	  "owned_by_school": 1,
+	  "school": 3,
+	  "weapon_type":2,
+	  "price":1,
+      "damage":1  
+    }
+  }	
+]
