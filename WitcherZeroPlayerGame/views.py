@@ -5,10 +5,14 @@ from WitcherZeroPlayerGame import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
+from django.http import JsonResponse
 from WitcherZeroPlayerGame import models
+from WitcherZeroPlayerGame.management.commands import generateevent
 
 from datetime import date, datetime
+from random import randint
 
+from WitcherZeroPlayerGame.management.commands import generateevent
 # Create your views here.
 
 
@@ -23,7 +27,6 @@ def login(request):
         password = request.POST['password']
         user = auth.authenticate(username=username, password=password)
         if form.is_valid() and user is not None and user.is_active:
-        #if form.is_valid() and User.objects.get(username=form.cleaned_data['login'], password=form.cleaned_data['password']):
             user2 = User.objects.get_by_natural_key(username)
             user2.profile.last_seen = datetime.now()
             auth.login(request, user2)
@@ -31,29 +34,32 @@ def login(request):
                 return redirect('/create_witcher/')
             else:
                 return redirect('/home/')
-            #return render(request, 'create_witcher.html')
         else:
-            return render(request, 'login.html', {'form': form, })
+            return render(request, 'login.html', {'form': form, 'message': 'Неверный логин или пароль!'})
     else:
         form = forms.UserLoginForm()
-        return render(request, 'login.html', {'form': form, })
+        return render(request, 'login.html', {'form': form, 'message': ''})
 
 
 def register(request):
     if request.method == 'POST':
         form = forms.UserRegisterForm(request.POST)
         if form.is_valid():
-            user = User.objects.create_user(form.cleaned_data['login'], 'email', form.cleaned_data['password'])
-            user.profile.last_seen = datetime.now()
-            user.save()
-            auth.authenticate(username=user.username, password=form.cleaned_data['password'])
-            auth.login(request, user)
-            return redirect('/create_witcher/')
+            if User.objects.filter(username=form.cleaned_data['login']).count() != 0:
+                return render(request, 'register.html', {'form': form, 'message': 'Такой логин занят!'})
+            else:
+                user = User.objects.create_user(form.cleaned_data['login'], 'email', form.cleaned_data['password'])
+                user.profile.last_seen = datetime.now()
+                user.save()
+                auth.authenticate(username=user.username, password=form.cleaned_data['password'])
+                auth.login(request, user)
+                return redirect('/create_witcher/')
         else:
-            return redirect('/register/')
+            return render(request, 'register.html', {'form': form, 'message': 'Неккоректные данные!'})
     else:
         form = forms.UserRegisterForm()
-        return render(request, 'register.html', {'form': form, })
+        return render(request, 'register.html', {'form': form, 'message': ''})
+
 
 @login_required(login_url='/login/')
 def logout(request):
@@ -80,8 +86,117 @@ def create_witcher(request):
 
 @login_required(login_url='/login/')
 def home(request):
+    request.user.profile.last_seen = datetime.now()
+    request.user.save()
     if request.user.profile.witcher is not None:
-        return render(request, 'home.html', {})
+        events = []
+        for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('-date')[:10]:
+            events.append({'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event})
+        events.reverse()
+        friends = []
+        # generateevent.Command.generate_meeting_event(request.user)
+        for friend in models.WitchersRelationship.objects.filter(first_witcher=request.user.profile.witcher):
+            friends.append({'friend': friend.second_witcher.name, 'relation': friend.relationship.name})
+        return render(request, 'home.html', {
+            'events': events,
+            'friends': friends,
+            'is_alive': request.user.profile.witcher.status != "Мертв"
+        })
     else:
         return redirect('/create_witcher/')
 
+@login_required(login_url='/login/')
+def get_events(request):
+    events = []
+    for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('-date')[:10]:
+        events.append({'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event})
+    events.reverse()
+    request.user.profile.last_seen = datetime.now()
+    request.user.save()
+    data = {
+        'events': events,
+        'is_alive': request.user.profile.witcher.status != "Мертв"
+    }
+    return JsonResponse(data)
+
+
+@login_required(login_url='/login/')
+def get_friends(request):
+    # generateevent.Command.generate_meeting_event(request.user)
+    friends = []
+    for friend in models.WitchersRelationship.objects.filter(first_witcher=request.user.profile.witcher):
+        friends.append({'friend': friend.second_witcher.name, 'relation': friend.relationship.name})
+    request.user.profile.last_seen = datetime.now()
+    request.user.save()
+    data = {'friends': friends}
+    return JsonResponse(data)
+
+
+@login_required(login_url='/login/')
+def generate_positive_event(request):
+    if request.user.profile.possible_positive_events > 0 and request.user.profile.witcher.status != "Мертв":
+        request.user.profile.possible_positive_events -= 1
+        generateevent.Command.generate_positive_event(request.user)
+        request.user.save()
+        event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
+        return JsonResponse(
+            {
+                'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event},
+                'is_alive': request.user.profile.witcher.status != "Мертв"
+            })
+    else:
+        return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
+
+
+@login_required(login_url='/login/')
+def generate_negative_event(request):
+    if request.user.profile.possible_negative_events > 0 and request.user.profile.witcher.status != "Мертв":
+        request.user.profile.possible_negative_events -= 1
+        generateevent.Command.generate_negative_event(request.user)
+        request.user.save()
+        event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
+        return JsonResponse(
+            {
+                'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event},
+                'is_alive': request.user.profile.witcher.status != "Мертв"
+            })
+    else:
+        return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
+
+
+@login_required(login_url='/login/')
+def generate_random_event(request):
+    event_type = randint(0, 1)
+    if request.user.profile.possible_neutral_events > 0 and request.user.profile.witcher.status != "Мертв":
+        request.user.profile.possible_neutral_events -= 1
+        if event_type == 0:
+            generateevent.Command.generate_negative_event(request.user)
+        else:
+            generateevent.Command.generate_positive_event(request.user)
+        request.user.save()
+        event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
+        return JsonResponse(
+            {
+                'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event},
+                'is_alive': request.user.profile.witcher.status != "Мертв"
+            })
+    else:
+        return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
+
+
+@login_required(login_url='/login/')
+def respawn(request):
+    if request.user.profile.witcher.status == "Мертв":
+        request.user.profile.witcher.status = "Жив"
+        request.user.save()
+        return JsonResponse({'is_respawned': True})
+    return JsonResponse({'is_respawned': False})
+
+
+@login_required(login_url='/login/')
+def witcher_info(request):
+    if request.user.profile.witcher is not None:
+        witcher = request.user.profile.witcher
+        return render(request, 'witcher_info.html', {'witcher': witcher, })
+    else:
+        return redirect('/create_witcher/')

@@ -10,29 +10,241 @@
     <div class="header" style="margin-bottom: 10px">
         <div class="main_block">
             <h1>Witcher Project</h1>
-            <button id="btn_logout" >Выход</button>
-        </div>
+            <a href="/logout/" ><button id="btn_logout">Выход</button></a>        </div>
     </div>
     <div class="main_block">
         <div id="info" class="block_elem">
             <div class="header"><b>Управление</b></div>
             <ul  style="list-style-type: none">
-                <li><a href="#">Информация о персонаже</a></li>
+                <li><a href="/witcher_info/">Информация о персонаже</a></li>
             </ul>
         </div>
         <div id="history" class="block_elem">
             <div class="header"><b>Приключения</b></div>
-            <div class="field" style="height: 400px; background-color: gray"></div>
-            <div class="buttons" style="height: 100px"></div>
+            <div id="event_container" class="field">
+                {% for event in events %}
+                    <div>
+                        <div class="event_date last"><p>{{ event.date }}</p></div>
+                        <div class="event_message"><p>{{ event.message }}</p></div>
+                    </div>
+                {% endfor %}
+            </div>
+            <script>
+                function getEvents(){
+                    $.ajax({
+                        url: '/ajax/get_events/',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            $('.last').addClass('prelast');
+                            var prelast =  $('.prelast');
+                            prelast.removeClass('last');
+                            var lasts = prelast.text();
+                            console.log(lasts);
+                            for(var i = 0; i < data.events.length; ++i){
+                                var event = data.events[i];
+                                if (lasts.indexOf(event.date) === -1)
+                                {
+                                    var node = document.createElement("div");
+                                    var date = document.createElement("div");
+                                    date.setAttribute("class", "event_date");
+                                    date.innerHTML = "<p>" + event.date + "</p>";
+                                    var message = document.createElement("div");
+                                    message.setAttribute("class", "event_message");
+                                    message.innerHTML = "<p>" + event.message + "</p>";
+                                    node.appendChild(date);
+                                    node.appendChild(message);
+                                    $("#event_container").append(node);
+                                }
+                            }
+                            prelast.removeClass('prelast');
+                            $('.event_date').slice(-15).addClass('last');
+                        },
+                        error: function(xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            console.log(err.Message);
+                        }
+                    });
+                }
+                setInterval(getEvents, 30000);
+            </script>
+            <div class="buttons" style="height: 150px;">
+                <div class="btns_left">
+                    <button id="btn_good" onclick="Good()" {% if not is_alive %} disabled {% endif %}>Подарить подарок</button>
+                    <button id="btn_rand" onclick="Random()" {% if not is_alive %} disabled {% endif %}>Мне повезет!</button>
+                </div>
+                <div class="btns_right">
+                    <button id="btn_bad" onclick="Bad()" {% if not is_alive %} disabled {% endif %}>Наслать беду</button>
+                    <button id="btn_wake" {% if is_alive %} disabled {% endif %}>Воскресить</button>
+                </div>
+            </div>
         </div>
         <div id="friends" class="block_elem">
             <div class="header"><b>Список друзей</b></div>
-            <ul style="" >
-                <li>Друг 1</li>
-                <li>Друг 2</li>
-                <li>Друг 3</li>
+            <ul id="friend_list" >
+                 {% for friend in friends %}
+                    <li class="last_fr">{{ friend.friend }}  {{ friend.relation }}</li>
+                {% endfor %}
             </ul>
+            <script>
+                function getFriends(){
+                    $.ajax({
+                        url: 'ajax/get_friends/',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            $('.last_fr').addClass('prelast_fr');
+                            var prelast =  $('.prelast_fr');
+                            prelast.removeClass('last_fr');
+                            var lasts = prelast.text();
+                            console.log(lasts);
+                            for(var i = 0; i < data.friends.length; ++i){
+                                var friend = data.friends[i];
+                                if (lasts.indexOf(friend.friend) === -1)
+                                {
+                                    var node = document.createElement("li");
+                                    node.innerHTML = friend.friend + "  " + friend.relation;
+                                    $("#friend_list").append(node);
+                                }
+                            }
+                            prelast.removeClass('prelast_fr');
+                            $('#friend_list li').slice(-5).addClass('last_fr');
+                        },
+                        error: function(xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            console.log(err.Message);
+                        }
+                    });
+                }
+                setInterval(getFriends, 5000);
+            </script>
         </div>
     </div>
+    <script>
+        function Good() {
+            $.ajax({
+                url: 'ajax/generate_positive_event/',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var event = data.event;
+                    var node = document.createElement("div");
+                    var date = document.createElement("div");
+                    date.setAttribute("class", "event_date");
+                    date.innerHTML = "<p>" + event.date + "</p>";
+                    var message = document.createElement("div");
+                    message.setAttribute("class", "event_message");
+                    message.innerHTML = "<p>" + event.message + "</p>";
+                    node.appendChild(date);
+                    node.appendChild(message);
+                    $("#event_container").append(node);
+                    $('.event_date').slice(-15).addClass('last');
+                    if (data.is_alive) {
+                        $("#btn_good").removeAttr("disabled");
+                        $("#btn_bad").removeAttr("disabled");
+                        $("#btn_rand").removeAttr("disabled");
+                        $("#btn_wake").setAttribute("disabled", "disabled");
+                    } else {
+                        $("#btn_good").setAttribute("disabled", "disabled");
+                        $("#btn_bad").setAttribute("disabled", "disabled");
+                        $("#btn_rand").setAttribute("disabled", "disabled");
+                        $("#btn_wake").removeAttr("disabled");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    console.log(err.Message);
+                }
+            })
+        }
+        function Bad() {
+            $.ajax({
+                url: 'ajax/generate_negative_event/',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var event = data.event;
+                    var node = document.createElement("div");
+                    var date = document.createElement("div");
+                    date.setAttribute("class", "event_date");
+                    date.innerHTML = "<p>" + event.date + "</p>";
+                    var message = document.createElement("div");
+                    message.setAttribute("class", "event_message");
+                    message.innerHTML = "<p>" + event.message + "</p>";
+                    node.appendChild(date);
+                    node.appendChild(message);
+                    $("#event_container").append(node);
+                    $('.event_date').slice(-15).addClass('last');
+                    if (data.is_alive) {
+                        $("#btn_good").removeAttr("disabled");
+                        $("#btn_bad").removeAttr("disabled");
+                        $("#btn_rand").removeAttr("disabled");
+                        $("#btn_wake").setAttribute("disabled", "disabled");
+                    } else {
+                        $("#btn_good").setAttribute("disabled", "disabled");
+                        $("#btn_bad").setAttribute("disabled", "disabled");
+                        $("#btn_rand").setAttribute("disabled", "disabled");
+                        $("#btn_wake").removeAttr("disabled");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    console.log(err.Message);
+                }
+            })
+        }
+        function Random() {
+            $.ajax({
+                url: 'ajax/generate_random_event/',
+                dataType: 'json',
+                success: function (data) {
+                    console.log(data);
+                    var event = data.event;
+                    var node = document.createElement("div");
+                    var date = document.createElement("div");
+                    date.setAttribute("class", "event_date");
+                    date.innerHTML = "<p>" + event.date + "</p>";
+                    var message = document.createElement("div");
+                    message.setAttribute("class", "event_message");
+                    message.innerHTML = "<p>" + event.message + "</p>";
+                    node.appendChild(date);
+                    node.appendChild(message);
+                    $("#event_container").append(node);
+                    $('.event_date').slice(-15).addClass('last');
+                    if (data.is_alive) {
+                        $("#btn_good").removeAttr("disabled");
+                        $("#btn_bad").removeAttr("disabled");
+                        $("#btn_rand").removeAttr("disabled");
+                        $("#btn_wake").setAttribute("disabled", "disabled");
+                    } else {
+                        $("#btn_good").setAttribute("disabled", "disabled");
+                        $("#btn_bad").setAttribute("disabled", "disabled");
+                        $("#btn_rand").setAttribute("disabled", "disabled");
+                        $("#btn_wake").removeAttr("disabled");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    console.log(err.Message);
+                }
+            })
+        }
+        function Respawn(){
+            $.ajax({
+                url: 'ajax/respawn/',
+                dataType: 'json',
+                success: function (data) {
+                    if (data.is_respawned){
+                        $("#btn_wake").setAttribute("disabled", "disabled")
+                    }
+                },
+                error: function(xhr, status, error) {
+                    var err = eval("(" + xhr.responseText + ")");
+                    console.log(err.Message);
+                }
+            })
+        }
+    </script>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
 </body>
 </html>

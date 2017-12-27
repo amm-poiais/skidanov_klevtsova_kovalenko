@@ -1,0 +1,38 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 1,
+    "fields": {
+      "name" : "Обычный меч",
+      "owned_by_school":  0,
+      "school": null,
+      "weapon_type": 1,
+      "price": 10,
+      "damage": 30
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 2,
+    "fields": {
+      "name" : "Топор",
+      "owned_by_school":  0,
+      "school": null,
+      "weapon_type": 1,
+      "price": 15,
+      "damage": 40
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Weapon",
+    "pk": 3,
+    "fields": {
+      "name" : "Гаэтаэль",
+      "owned_by_school":  0,
+      "school": null,
+      "weapon_type": 2,
+      "price": 30,
+      "damage": 50
+    }
+  }
+]
