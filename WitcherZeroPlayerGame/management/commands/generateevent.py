@@ -94,8 +94,7 @@ class Command(BaseCommand):
         monster = Command.get_random_monster()
         monster_chance = monster.strength
         max_dam_per = models.DamagePerc.objects.order_by('-value').first()
-        monster_weap_rel = models.MonsterWeaponTypeRelation.objects\
-            .filter(monster=monster, damage_perc=max_dam_per)
+        monster_weap_rel = models.MonsterWeaponTypeRelation.objects.filter(monster=monster, damage_perc=max_dam_per)
         monster_dam_rel = models.MonsterDamageTypePerc.objects \
             .filter(monster=monster, damage_perc=max_dam_per)
         witcher_chance = 100
@@ -103,13 +102,13 @@ class Command(BaseCommand):
         if possible_armor.count() != 0:
             witcher_chance += possible_armor.aggregate(Max('protection'))
         possible_weapon = models.HavingWeapon.objects.filter(witcher=wither).select_related('weapon')
-        if possible_weapon.count() != 0:
-            possible_weapon = possible_weapon.filter(weapon__weapon_type=monster_weap_rel.first().weapon_type)
+        if possible_weapon.count() != 0 & monster_weap_rel.count() != 0:
+            possible_weapon = possible_weapon.filter(weapon__weapon_type_in=monster_weap_rel.all().weapon_type)
             if possible_weapon.count() != 0:
                 witcher_chance += possible_weapon.aggregate(Max('damage'))
         possible_alchemy = models.HavingAlchemy.objects.filter(witcher=wither).select_related('alchemy')
-        if possible_alchemy.count() != 0:
-            possible_alchemy = possible_alchemy.filter(alchemy__damage_type=monster_dam_rel.first().damage_rype)
+        if possible_alchemy.count() != 0 & monster_dam_rel.count() != 0:
+            possible_alchemy = possible_alchemy.filter(alchemy__damage_type_in=monster_dam_rel.all().damage_type)
         for al in possible_alchemy:
             witcher_chance += 5
         if monster_chance/witcher_chance >= 1:

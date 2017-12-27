@@ -21,6 +21,7 @@ class Monster(models.Model):
     monster_class = models.ForeignKey(MonsterClass, models.PROTECT)
     strength = models.IntegerField()
 
+
 # 0 - не уязвим, 1 - уязвим
 class DamagePerc(models.Model):
     value = models.IntegerField()

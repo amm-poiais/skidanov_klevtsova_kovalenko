@@ -10,6 +10,7 @@ from django.http import JsonResponse
 
 from datetime import date, datetime
 
+from WitcherZeroPlayerGame.management.commands import generateevent
 # Create your views here.
 
 
@@ -84,6 +85,7 @@ def home(request):
     request.user.profile.last_seen = datetime.now()
     request.user.save()
     if request.user.profile.witcher is not None:
+        # generateevent.Command.generate_negative_event(request.user)
         return render(request, 'home.html', {})
     else:
         return redirect('/create_witcher/')
