@@ -85,3 +85,11 @@ def home(request):
     else:
         return redirect('/create_witcher/')
 
+
+@login_required(login_url='/login/')
+def witcher_info(request):
+    if request.user.profile.witcher is not None:
+        witcher = request.user.profile.witcher
+        return render(request, 'witcher_info.html', {'witcher': witcher, })
+    else:
+        return redirect('/create_witcher/')
