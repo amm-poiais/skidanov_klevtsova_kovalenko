@@ -116,7 +116,7 @@ def get_events(request):
 
 @login_required(login_url='/login/')
 def generate_positive_event(request):
-    if request.user.profile.possible_positive_events > 0:
+    if request.user.profile.possible_positive_events > 0 and request.user.profile.witcher.status != "Мертв":
         request.user.profile.possible_positive_events -= 1
         generateevent.Command.generate_positive_event(request.user)
         request.user.save()
@@ -132,7 +132,7 @@ def generate_positive_event(request):
 
 @login_required(login_url='/login/')
 def generate_negative_event(request):
-    if request.user.profile.possible_negative_events > 0:
+    if request.user.profile.possible_negative_events > 0 and request.user.profile.witcher.status != "Мертв":
         request.user.profile.possible_negative_events -= 1
         generateevent.Command.generate_negative_event(request.user)
         request.user.save()
@@ -149,7 +149,7 @@ def generate_negative_event(request):
 @login_required(login_url='/login/')
 def generate_random_event(request):
     event_type = randint(0, 1)
-    if request.user.profile.possible_neutral_events > 0:
+    if request.user.profile.possible_neutral_events > 0 and request.user.profile.witcher.status != "Мертв":
         request.user.profile.possible_neutral_events -= 1
         if event_type == 0:
             generateevent.Command.generate_negative_event(request.user)

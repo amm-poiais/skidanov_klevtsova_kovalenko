@@ -126,7 +126,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         for user in User.objects.filter(
                 profile__last_seen__gte=datetime.now() - timedelta(minutes=10),
-                profile__witcher__isnull=False
+                profile__witcher__isnull=False,
+                profile__witcher__status="Жив"
         ):
             event_type = randint(0, 2)
             if event_type == 0:
