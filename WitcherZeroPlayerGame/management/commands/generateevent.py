@@ -11,7 +11,8 @@ class Command(BaseCommand):
     @staticmethod
     def generate_neutral_event(user):
         events = models.Event.objects.all()
-        count = events.count()        random_index = randint(0, count - 1)
+        count = events.count()
+        random_index = randint(0, count - 1)
         event = events[random_index]
         witcher_event = models.WitcherEvent(witcher=user.profile.witcher, event=event.event, date=datetime.now())
         witcher_event.save()
