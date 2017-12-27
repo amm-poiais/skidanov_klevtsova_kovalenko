@@ -1,0 +1,128 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 1,
+    "fields": {
+      "name": "Гуль",
+	  "monster_type":1,
+	  "monster_class":5
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 2,
+    "fields": {
+      "name": "Эхна",
+	  "monster_type":1,
+	  "monster_class":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 3,
+    "fields": {
+      "name": "Гнилец",
+	  "monster_type":1,
+	  "monster_class":5
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 4,
+    "fields": {
+      "name": "Тримп",
+	  "monster_type":1,
+	  "monster_class":5
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 5,
+    "fields": {
+      "name": "Дух",
+	  "monster_type":1,
+	  "monster_class":3
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 6,
+    "fields": {
+      "name": "Эриния",
+	  "monster_type":1,
+	  "monster_class":4
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 7,
+    "fields": {
+      "name": "Волк",
+	  "monster_type":2,
+	  "monster_class":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 8,
+    "fields": {
+      "name": "Медведь",
+	  "monster_type":2,
+	  "monster_class":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 9,
+    "fields": {
+      "name": "Куролиск",
+	  "monster_type":2,
+	  "monster_class":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 10,
+    "fields": {
+      "name": "Ехидна",
+	  "monster_type":2,
+	  "monster_class":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 11,
+    "fields": {
+      "name": "Утопленница",
+	  "monster_type":2,
+	  "monster_class":3
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 12,
+    "fields": {
+      "name": "Арахн",
+	  "monster_type":2,
+	  "monster_class":4
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 13,
+    "fields": {
+      "name": "Кирена",
+	  "monster_type":2,
+	  "monster_class":4
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Monster",
+    "pk": 14,
+    "fields": {
+      "name": "Хран",
+	  "monster_type":2,
+	  "monster_class":2
+    }
+  }   
+]

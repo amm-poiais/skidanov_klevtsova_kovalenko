@@ -1,0 +1,272 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 1,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":1,
+	  "count":15
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 2,
+    "fields": {
+      "ingridient": 3,
+	  "alchemy":1,
+	  "count":10
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 3,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":1,
+	  "count":12
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 4,
+    "fields": {
+      "ingridient": 2,
+	  "alchemy":2,
+	  "count":15
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 5,
+    "fields": {
+      "ingridient": 6,
+	  "alchemy":2,
+	  "count":20
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 6,
+    "fields": {
+      "ingridient": 7,
+	  "alchemy":2,
+	  "count":5
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 7,
+    "fields": {
+      "ingridient": 4,
+	  "alchemy":3,
+	  "count":11
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 8,
+    "fields": {
+      "ingridient": 9,
+	  "alchemy":3,
+	  "count":15
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 9,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":4,
+	  "count":10
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 10,
+    "fields": {
+      "ingridient": 5,
+	  "alchemy":4,
+	  "count":15
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 11,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":5,
+	  "count":5
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 12,
+    "fields": {
+      "ingridient": 10,
+	  "alchemy":5,
+	  "count":6
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 13,
+    "fields": {
+      "ingridient": 8,
+	  "alchemy":5,
+	  "count":14
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 14,
+    "fields": {
+      "ingridient": 9,
+	  "alchemy":5,
+	  "count":11
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 15,
+    "fields": {
+      "ingridient": 5,
+	  "alchemy":6,
+	  "count":8
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 16,
+    "fields": {
+      "ingridient": 7,
+	  "alchemy":6,
+	  "count":18
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 17,
+    "fields": {
+      "ingridient": 10,
+	  "alchemy":7,
+	  "count":15
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 18,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":7,
+	  "count":10
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 19,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":8,
+	  "count":13
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 20,
+    "fields": {
+      "ingridient": 2,
+	  "alchemy":8,
+	  "count":19
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 21,
+    "fields": {
+      "ingridient": 9,
+	  "alchemy":8,
+	  "count":15
+    }
+  },  
+  {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 22,
+    "fields": {
+      "ingridient": 4,
+	  "alchemy":9,
+	  "count":10
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 23,
+    "fields": {
+      "ingridient": 6,
+	  "alchemy":9,
+	  "count":10
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 24,
+    "fields": {
+      "ingridient": 2,
+	  "alchemy":10,
+	  "count":15
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 25,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":10,
+	  "count":15
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 26,
+    "fields": {
+      "ingridient": 3,
+	  "alchemy":11,
+	  "count":10
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 27,
+    "fields": {
+      "ingridient": 8,
+	  "alchemy":1,
+	  "count":13
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 28,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":11,
+	  "count":15
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 29,
+    "fields": {
+      "ingridient": 11,
+	  "alchemy":12,
+	  "count":15
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.Formula",
+    "pk": 30,
+    "fields": {
+      "ingridient": 1,
+	  "alchemy":12,
+	  "count":15
+    }
+  }
+]

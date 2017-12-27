@@ -1,0 +1,51 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.DamageType",
+    "pk": 1,
+    "fields": {
+      "name": "Огонь"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.DamageType",
+    "pk": 2,
+    "fields": {
+      "name": "Холод"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.DamageType",
+    "pk": 3,
+    "fields": {
+      "name": "Оглушение"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.DamageType",
+    "pk": 4,
+    "fields": {
+      "name": "Кровотечение"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.DamageType",
+    "pk": 5,
+    "fields": {
+      "name": "Отравление"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.DamageType",
+    "pk": 6,
+    "fields": {
+      "name": "Физический"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.DamageType",
+    "pk": 7,
+    "fields": {
+      "name": "Другое"
+    }
+  }
+]
