@@ -50,7 +50,7 @@ class Command(BaseCommand):
     @staticmethod
     def generate_positive_event(user):
         # TODO: изменить диапазон типов после добавления в базу брони и предметов
-        positive_event_type = randint(0, 1)
+        positive_event_type = randint(0, 0)
         message = ""
         if positive_event_type == 0:
             weapon = Command.get_random_weapon(user.profile.witcher)

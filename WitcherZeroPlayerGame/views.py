@@ -89,7 +89,7 @@ def home(request):
     if request.user.profile.witcher is not None:
         events = []
         for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('-date')[:10]:
-            events.append({'date': event.date, 'message': event.event})
+            events.append({'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event})
         events.reverse()
         return render(request, 'home.html', {'events': events})
     else:
@@ -100,7 +100,7 @@ def home(request):
 def get_events(request):
     events = []
     for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('-date')[:10]:
-        events.append({'date': event.date, 'message': event.event})
+        events.append({'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event})
     events.reverse()
     request.user.profile.last_seen = datetime.now()
     request.user.save()
@@ -115,8 +115,9 @@ def generate_positive_event(request):
     if request.user.profile.possible_positive_events > 0:
         request.user.profile.possible_positive_events -= 1
         generateevent.Command.generate_positive_event(request.user)
+        event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
-            {'event': models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).reverse()[0]})
+            {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
     else:
         return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
 
@@ -126,8 +127,9 @@ def generate_negative_event(request):
     if request.user.profile.possible_negative_events > 0:
         request.user.profile.possible_negative_events -= 1
         generateevent.Command.generate_negative_event(request.user)
+        event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
-            {'event': models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).reverse()[0]})
+            {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
     else:
         return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
 
@@ -141,7 +143,8 @@ def generate_random_event(request):
             generateevent.Command.generate_negative_event(request.user)
         else:
             generateevent.Command.generate_positive_event(request.user)
+        event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
-            {'event': models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).reverse()[0]})
+            {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
     else:
         return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
