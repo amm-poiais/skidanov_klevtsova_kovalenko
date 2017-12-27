@@ -1,0 +1,16 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.DamagePerc",
+    "pk": 1,
+    "fields": {
+      "name": "Сильно уязвим"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.DamagePerc",
+    "pk": 2,
+    "fields": {
+      "name": "Слабо уязвим"
+    }
+  }
+]
