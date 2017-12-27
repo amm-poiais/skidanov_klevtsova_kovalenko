@@ -1,0 +1,16 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.WeaponType",
+    "pk": 1,
+    "fields": {
+      "name": "Обычное"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.WeaponType",
+    "pk": 2,
+    "fields": {
+      "name": "Серебрянное"
+    }
+  }
+]
