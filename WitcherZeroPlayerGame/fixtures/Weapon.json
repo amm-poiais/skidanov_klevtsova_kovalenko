@@ -7,8 +7,8 @@
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":18,
+      "damage":19  
     }
   },
   { 
@@ -19,8 +19,8 @@
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":14,
+      "damage":23  
     }
   },
   {
@@ -31,8 +31,8 @@
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":24,
+      "damage":26  
     }
   },
   {
@@ -43,8 +43,8 @@
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":25,
+      "damage":44  
     }
   },
   {
@@ -55,8 +55,8 @@
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":23,
+      "damage":56  
     }
   },
   {
@@ -67,8 +67,8 @@
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":16,
+      "damage":18  
     }
   },
   {
@@ -79,68 +79,56 @@
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":14,
+      "damage":10  
     }
   },  
   {
     "model": "WitcherZeroPlayerGame.Weapon",
-    "pk": 7,
+    "pk": 8,
     "fields": {
       "name": "Топор",
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":11,
+      "damage":12  
     }
   },   
   {
     "model": "WitcherZeroPlayerGame.Weapon",
-    "pk": 8,
+    "pk": 9,
     "fields": {
       "name": "Гешефт",
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":2,
-	  "price":1,
-      "damage":1  
+	  "price":14,
+      "damage":16  
     }
   },
   { 
     "model": "WitcherZeroPlayerGame.Weapon",
-    "pk": 9,
+    "pk": 10,
     "fields": {
       "name": "Дергдейт",
 	  "owned_by_school": 0,
 	  "school": null,
 	  "weapon_type":2,
-	  "price":1,
-      "damage":1  
-    }
-  },
-  {
-    "model": "WitcherZeroPlayerGame.Weapon",
-    "pk": 10,
-    "fields": {
-      "name": "Луна",
-	  "owned_by_school": 0,
-	  "school": null,
-	  "weapon_type":2,
-	  "price":1,
-      "damage":1  
+	  "price":12,
+      "damage":21  
     }
   },
   {
     "model": "WitcherZeroPlayerGame.Weapon",
     "pk": 11,
     "fields": {
-      "name": "Негоциатор",
+      "name": "Луна",
 	  "owned_by_school": 0,
 	  "school": null,
-	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "weapon_type":2,
+	  "price":21,
+      "damage":12  
     }
   },
   {
@@ -151,8 +139,8 @@
 	  "owned_by_school": 1,
 	  "school": 1,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":13,
+      "damage":15 
     }
   },
   { 
@@ -163,8 +151,8 @@
 	  "owned_by_school": 1,
 	  "school": 2,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":16,
+      "damage":10  
     }
   },
   {
@@ -175,8 +163,8 @@
 	  "owned_by_school": 1,
 	  "school": 3,
 	  "weapon_type":1,
-	  "price":1,
-      "damage":1  
+	  "price":67,
+      "damage":44  
     }
   },
   {
@@ -187,8 +175,8 @@
 	  "owned_by_school": 1,
 	  "school": 1,
 	  "weapon_type":2,
-	  "price":1,
-      "damage":1  
+	  "price":56,
+      "damage":50  
     }
   },
   {
@@ -199,8 +187,8 @@
 	  "owned_by_school": 1,
 	  "school": 2,
 	  "weapon_type":2,
-	  "price":1,
-      "damage":1  
+	  "price":68,
+      "damage":60  
     }
   },
   {
@@ -211,8 +199,8 @@
 	  "owned_by_school": 1,
 	  "school": 3,
 	  "weapon_type":2,
-	  "price":1,
-      "damage":1  
+	  "price":54,
+      "damage":56
     }
   }	
 ]
