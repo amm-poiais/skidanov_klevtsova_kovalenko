@@ -82,11 +82,43 @@
         </div>
         <div id="friends" class="block_elem">
             <div class="header"><b>Список друзей</b></div>
-            <ul style="" >
-                <li>Друг 1</li>
-                <li>Друг 2</li>
-                <li>Друг 3</li>
+            <ul id="friend_list" >
+                 {% for friend in friends %}
+                    <li class="last_fr">{{ friend.friend }}  {{ friend.relation }}</li>
+                {% endfor %}
             </ul>
+            <script>
+                function getFriends(){
+                    $.ajax({
+                        url: 'ajax/get_friends/',
+                        dataType: 'json',
+                        success: function (data) {
+                            console.log(data);
+                            $('.last_fr').addClass('prelast_fr');
+                            var prelast =  $('.prelast_fr');
+                            prelast.removeClass('last_fr');
+                            var lasts = prelast.text();
+                            console.log(lasts);
+                            for(var i = 0; i < data.friends.length; ++i){
+                                var friend = data.friends[i];
+                                if (lasts.indexOf(friend.friend) === -1)
+                                {
+                                    var node = document.createElement("li");
+                                    node.innerHTML = friend.friend + "  " + friend.relation;
+                                    $("#friend_list").append(node);
+                                }
+                            }
+                            prelast.removeClass('prelast_fr');
+                            $('#friend_list li').slice(-5).addClass('last_fr');
+                        },
+                        error: function(xhr, status, error) {
+                            var err = eval("(" + xhr.responseText + ")");
+                            console.log(err.Message);
+                        }
+                    });
+                }
+                setInterval(getFriends, 5000);
+            </script>
         </div>
     </div>
     <script>
