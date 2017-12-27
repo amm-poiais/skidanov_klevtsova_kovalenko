@@ -5,7 +5,7 @@ from WitcherZeroPlayerGame import models
 from random import randint
 
 
-class MeetAnotherWitcher(BaseCommand):
+class Command(BaseCommand):
     @staticmethod
     def get_random_stranger(witcher):
         strangers = models.Witcher.objects.all().difference(models.Witcher.objects.filter(pk=witcher.pk))
@@ -16,7 +16,7 @@ class MeetAnotherWitcher(BaseCommand):
     @staticmethod
     def generate_meeting_event(user):
         witcher = user.profile.witcher
-        stranger = MeetAnotherWitcher.get_random_stranger(witcher)
+        stranger = Command.get_random_stranger(witcher)
         rel_count = models.Relation.objects.all().count()
         if (models.WitchersRelationship.objects.filter(first_witcher=witcher, second_witcher=stranger).count() == 0 &
                 models.WitchersRelationship.objects.filter(first_witcher=stranger, second_witcher=witcher).count() == 0):
