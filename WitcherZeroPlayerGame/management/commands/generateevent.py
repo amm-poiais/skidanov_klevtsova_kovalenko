@@ -10,9 +10,10 @@ from django.db.models import Max
 class Command(BaseCommand):
     @staticmethod
     def generate_neutral_event(user):
-        count = models.Event.objects.aggregate(count=Count('id'))['count']
+        events = models.Event.objects.all()
+        count = events.count()
         random_index = randint(0, count - 1)
-        event = models.Event.objects.all()[random_index]
+        event = events[random_index]
         witcher_event = models.WitcherEvent(witcher=user.profile.witcher, event=event.event, date=datetime.now())
         witcher_event.save()
 
@@ -20,7 +21,7 @@ class Command(BaseCommand):
     def get_random_weapon(witcher):
         possible_weapon = models.Weapon.objects.filter(owned_by_school=False).union(
             models.Weapon.objects.filter(owned_by_school=True, school=witcher.school))
-        count = possible_weapon.aggregate(count=Count('id'))['count']
+        count = possible_weapon.count()
         random_index = randint(0, count - 1)
         return possible_weapon[random_index]
 
@@ -28,21 +29,21 @@ class Command(BaseCommand):
     def get_random_armor(witcher):
         possible_armor = models.Armor.objects.filter(owned_by_school=False).union(
             models.Armor.objects.filter(owned_by_school=True, school=witcher.school))
-        count = possible_armor.aggregate(count=Count('id'))['count']
+        count = possible_armor.count()
         random_index = randint(0, count - 1)
         return possible_armor[random_index]
 
     @staticmethod
     def get_random_alchemy():
         possible_alchemy = models.Alchemy.objects.all()
-        count = possible_alchemy.aggregate(count=Count('id'))['count']
+        count = possible_alchemy.count()
         random_index = randint(0, count - 1)
         return possible_alchemy[random_index]
 
     @staticmethod
     def get_random_monster():
         possible_monster = models.Monster.objects.all()
-        count = possible_monster.aggregate(count=Count('id'))['count']
+        count = possible_monster.count()
         random_index = randint(0, count - 1)
         return possible_monster[random_index]
 
@@ -126,14 +127,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         for user in User.objects.filter(
                 profile__last_seen__gte=datetime.now() - timedelta(minutes=10),
-                profile__witcher__age__isnull=False
+                profile__witcher__isnull=False
         ):
             event_type = randint(0, 2)
             if event_type == 0:
                 self.generate_neutral_event(user)
+            elif event_type == 1:
+                self.generate_positive_event(user)
             else:
-                if event_type == 1:
-                    self.generate_positive_event(user)
-                else:
-                    self.generate_negative_event(user)
+                self.generate_negative_event(user)
         self.stdout.write('Finished')
