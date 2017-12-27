@@ -1,1 +1,1 @@
-python manage.py generateevent
+python manage.py meetanotherwitcher
