@@ -19,10 +19,12 @@ class Monster(models.Model):
     name = models.CharField(max_length=40)
     monster_type = models.ForeignKey(MonsterType, models.PROTECT)
     monster_class = models.ForeignKey(MonsterClass, models.PROTECT)
+    strength = models.IntegerField()
 
 
+# 0 - не уязвим, 1 - уязвим
 class DamagePerc(models.Model):
-    name = models.CharField(max_length=20)
+    value = models.IntegerField()
 
 
 class WeaponType(models.Model):
@@ -48,7 +50,7 @@ class WitcherSchool(models.Model):
 class Weapon(models.Model):
     name = models.CharField(max_length=40)
     owned_by_school = models.BooleanField()
-    school = models.ForeignKey(WitcherSchool, models.PROTECT)
+    school = models.ForeignKey(WitcherSchool, models.PROTECT, null=True)
     weapon_type = models.ForeignKey(WeaponType, models.PROTECT)
     price = models.IntegerField()
     damage = models.IntegerField()
@@ -160,6 +162,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.PROTECT, related_name="profile", blank=True)
     last_seen = models.DateTimeField(null=True, blank=True)
     witcher = models.OneToOneField(Witcher, on_delete=models.SET_NULL, null=True, blank=True)
+    possible_positive_events = models.IntegerField(default=5)
+    possible_negative_events = models.IntegerField(default=5)
+    possible_neutral_events = models.IntegerField(default=10)
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
