@@ -5,10 +5,12 @@ from WitcherZeroPlayerGame import forms
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.contrib import auth
-from WitcherZeroPlayerGame import models
 from django.http import JsonResponse
+from WitcherZeroPlayerGame import models
+from WitcherZeroPlayerGame.management.commands import generateevent
 
 from datetime import date, datetime
+from random import randint
 
 # Create your views here.
 
@@ -101,3 +103,40 @@ def get_events(request):
         'events': events,
     }
     return JsonResponse(data)
+
+
+@login_required(login_url='/login/')
+def generate_positive_event(request):
+    if request.user.profile.possible_positive_events > 0:
+        request.user.profile.possible_positive_events -= 1
+        generateevent.Command.generate_positive_event(request.user)
+        return JsonResponse(
+            {'event': models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).reverse()[0]})
+    else:
+        return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
+
+
+@login_required(login_url='/login/')
+def generate_negative_event(request):
+    if request.user.profile.possible_negative_events > 0:
+        request.user.profile.possible_negative_events -= 1
+        generateevent.Command.generate_negative_event(request.user)
+        return JsonResponse(
+            {'event': models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).reverse()[0]})
+    else:
+        return JsonResponse({'error': 'Вы уже потратили лимит событий!'})
+
+
+@login_required(login_url='/login/')
+def generate_random_event(request):
+    event_type = randint(0, 1)
+    if request.user.profile.possible_neutral_events > 0:
+        request.user.profile.possible_neutral_events -= 1
+        if event_type == 0:
+            generateevent.Command.generate_negative_event(request.user)
+        else:
+            generateevent.Command.generate_positive_event(request.user)
+        return JsonResponse(
+            {'event': models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).reverse()[0]})
+    else:
+        return JsonResponse({'error': 'Вы уже потратили лимит событий!'})

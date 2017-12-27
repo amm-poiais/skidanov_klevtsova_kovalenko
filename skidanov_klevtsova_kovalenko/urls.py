@@ -20,6 +20,9 @@ from WitcherZeroPlayerGame import views as witcher_views
 
 urlpatterns = [
     url('ajax/get_events/', witcher_views.get_events),
+    url('ajax/generate_positive_event/', witcher_views.generate_positive_event),
+    url('ajax/generate_negative_event/', witcher_views.generate_negative_event),
+    url('ajax/generate_random_event/', witcher_views.generate_random_event),
     url('logout/', witcher_views.logout),
     url('admin/', admin.site.urls),
     url('login/', witcher_views.login),

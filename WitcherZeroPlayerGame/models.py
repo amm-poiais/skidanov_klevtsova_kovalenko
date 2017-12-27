@@ -161,6 +161,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.PROTECT, related_name="profile", blank=True)
     last_seen = models.DateTimeField(null=True, blank=True)
     witcher = models.OneToOneField(Witcher, on_delete=models.SET_NULL, null=True, blank=True)
+    possible_positive_events = models.IntegerField(default=5)
+    possible_negative_events = models.IntegerField(default=5)
+    possible_neutral_events = models.IntegerField(default=10)
 
     @receiver(post_save, sender=User)
     def create_user_profile(sender, instance, created, **kwargs):
