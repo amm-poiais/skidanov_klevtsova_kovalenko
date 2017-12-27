@@ -1,0 +1,37 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.MonsterClass",
+    "pk": 1,
+    "fields": {
+      "name": "Бестия"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterClass",
+    "pk": 2,
+    "fields": {
+      "name": "Драконид"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterClass",
+    "pk": 1,
+    "fields": {
+      "name": "Призрак"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterClass",
+    "pk": 2,
+    "fields": {
+      "name": "Инсектоид"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterClass",
+    "pk": 1,
+    "fields": {
+      "name": "Трупоед"
+    }
+  } 
+]
