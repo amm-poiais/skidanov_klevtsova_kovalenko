@@ -56,8 +56,7 @@ class Command(BaseCommand):
 
     @staticmethod
     def generate_positive_event(user):
-        # TODO: изменить диапазон типов после добавления в базу брони и предметов
-        positive_event_type = randint(0, 0)
+        positive_event_type = randint(0, 2)
         message = ""
         if positive_event_type == 0:
             weapon = Command.get_random_weapon(user.profile.witcher)
@@ -100,11 +99,11 @@ class Command(BaseCommand):
         wither = user.profile.witcher
         monster = Command.get_random_monster()
         monster_chance = monster.strength
-        max_dam_per = models.DamagePerc.objects.order_by('-value').first()
+        max_dam_per = models.DamagePerc.objects.order_by('pk').first()
         monster_weap_rel = models.MonsterWeaponTypeRelation.objects.filter(monster=monster, damage_perc=max_dam_per)
         monster_dam_rel = models.MonsterDamageTypePerc.objects \
             .filter(monster=monster, damage_perc=max_dam_per)
-        witcher_chance = 100
+        witcher_chance = 150
         possible_armor = models.HavingArmor.objects.filter(witcher=wither).select_related('armor')
         if possible_armor.count() != 0:
             witcher_chance += possible_armor.aggregate(Max('protection'))

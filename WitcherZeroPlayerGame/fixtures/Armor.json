@@ -4,8 +4,8 @@
     "pk": 1,
     "fields": {
       "name": "Акетон",
-	  "owned_by_school": 0
-	  "school": null
+	  "owned_by_school": 0,
+	  "school": null,
 	  "price":10,
       "protection":17  
     }

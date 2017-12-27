@@ -22,9 +22,9 @@ class Monster(models.Model):
     strength = models.IntegerField()
 
 
-# 0 - не уязвим, 1 - уязвим
+
 class DamagePerc(models.Model):
-    value = models.IntegerField()
+    name = models.CharField(max_length=50)
 
 
 class WeaponType(models.Model):

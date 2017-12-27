@@ -113,9 +113,9 @@
     "model": "WitcherZeroPlayerGame.Alchemy",
     "pk": 11,
     "fields": {
-      "name": "Гуль",
-	  "action_time":1,
-	  "alchemy_type":5,
+      "name": "Яд",
+	  "action_time":1000,
+	  "alchemy_type":1,
 	  "damage_type":5,
 	  "toxicity":5
     }
