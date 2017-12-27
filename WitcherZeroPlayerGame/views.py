@@ -115,6 +115,7 @@ def generate_positive_event(request):
     if request.user.profile.possible_positive_events > 0:
         request.user.profile.possible_positive_events -= 1
         generateevent.Command.generate_positive_event(request.user)
+        request.user.save()
         event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
             {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
@@ -127,6 +128,7 @@ def generate_negative_event(request):
     if request.user.profile.possible_negative_events > 0:
         request.user.profile.possible_negative_events -= 1
         generateevent.Command.generate_negative_event(request.user)
+        request.user.save()
         event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
             {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
@@ -143,6 +145,7 @@ def generate_random_event(request):
             generateevent.Command.generate_negative_event(request.user)
         else:
             generateevent.Command.generate_positive_event(request.user)
+        request.user.save()
         event = models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('date').last()
         return JsonResponse(
             {'event': {'date': event.date.strftime('%d.%m.%y %H:%M:%S'), 'message': event.event}})
