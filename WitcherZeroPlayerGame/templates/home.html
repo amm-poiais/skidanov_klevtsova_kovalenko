@@ -23,7 +23,12 @@
         <div id="history" class="block_elem">
             <div class="header"><b>Приключения</b></div>
             <div id="event_container" class="field">
-
+                {% for event in events %}
+                    <div>
+                        <div class="event_date"><p>{{ event.date }}</p></div>
+                        <div class="event_message"><p>{{ event.message }}</p></div>
+                    </div>
+                {% endfor %}
             </div>
             <script>
                 function getEvents(){

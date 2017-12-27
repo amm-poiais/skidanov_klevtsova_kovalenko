@@ -86,7 +86,11 @@ def home(request):
     request.user.profile.last_seen = datetime.now()
     request.user.save()
     if request.user.profile.witcher is not None:
-        return render(request, 'home.html', {})
+        events = []
+        for event in models.WitcherEvent.objects.filter(witcher=request.user.profile.witcher).order_by('-date')[:10]:
+            events.append({'date': event.date, 'message': event.event})
+        events.reverse()
+        return render(request, 'home.html', {'events': events})
     else:
         return redirect('/create_witcher/')
 
