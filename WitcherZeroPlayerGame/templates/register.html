@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <title>Registration</title>
 </head>
-<body>
+<body style="font-weight: 500; font-family: 'Comic Sans MS'">
+<div  style=" width: 350px; margin: auto; text-align: center; border-radius: 10px; background-color: #DDDAE5; padding: 10px">
     <form action="/register/" method="post">
         <div>
-            {% csrf_token %}
-            {{ form.as_p }}
-            <input type="submit" value="Submit">
+             <div style="text-align: left; margin: auto; display: inline-block">
+                {% csrf_token %}
+                {{ form.as_p }}
+             </div>
+            <br>
+            <input type="submit" value="Зарегистрироваться">
         </div>
         <p style="color: red; font-weight: 700;">{{ message }}</p>
     </form>
+    <a href="/login/">У меня уже есть логин!</a>
+</div>
 </body>
 </html>

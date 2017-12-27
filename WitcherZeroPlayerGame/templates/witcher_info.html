@@ -4,21 +4,23 @@
     <meta charset="UTF-8">
     <title>Witcher info</title>
 </head>
-<body>
-    <a href="/home/">Назад</a>
+<body style="font-weight: 500; font-family: 'Comic Sans MS'">
+<div style=" width: 300px; margin: auto; text-align: center; border-radius: 10px; background-color: #DDDAE5; padding: 10px">
     <div id="witcher_info_container">
         <div>
-            {{ witcher.name }}
+            Имя: {{ witcher.name }}
         </div>
         <div>
-            {{ witcher.age }}
+            Возраст: {{ witcher.age }}
         </div>
         <div>
-            {{ witcher.school }}
+            Школа: {{ witcher.school }}
         </div>
         <div>
-            {{ witcher.status }}
+            Статус: {{ witcher.status }}
         </div>
     </div>
+    <a href="/home/">Назад</a>
+</div>
 </body>
 </html>

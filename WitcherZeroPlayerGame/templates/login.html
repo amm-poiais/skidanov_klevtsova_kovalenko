@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
-<body>
+<body style="font-weight: 500; font-family: 'Comic Sans MS'">
+<div style=" width: 300px; margin: auto; text-align: center; border-radius: 10px; background-color: #DDDAE5; padding: 10px">
     <form action="/login/" method="post">
         <div>
+            <div style="text-align: left; margin: auto; display: inline-block">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="Submit">
+            </div>
+            <br>
+            <input type="submit" value="Войти">
         </div>
         <p style="color: red; font-weight: 700;">{{ message }}</p>
     </form>
+    <a href="/register/">Регистрация</a>
+</div>
 </body>
 </html>

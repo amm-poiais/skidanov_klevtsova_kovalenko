@@ -83,7 +83,7 @@
             <div class="header"><b>Список друзей</b></div>
             <ul id="friend_list" >
                  {% for friend in friends %}
-                    <li class="last_fr">{{ friend.friend }}  {{ friend.relation }}</li>
+                    <li class="last_fr">{{ friend.friend }}: {{ friend.relation }}</li>
                 {% endfor %}
             </ul>
             <script>
@@ -103,7 +103,7 @@
                                 if (lasts.indexOf(friend.friend) === -1)
                                 {
                                     var node = document.createElement("li");
-                                    node.innerHTML = friend.friend + "  " + friend.relation;
+                                    node.innerHTML = friend.friend + ": " + friend.relation;
                                     $("#friend_list").append(node);
                                 }
                             }
