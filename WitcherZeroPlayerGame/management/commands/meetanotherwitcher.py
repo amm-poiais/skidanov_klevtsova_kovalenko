@@ -7,7 +7,7 @@ from random import randint
 def add_relation(witcher_to, witcher_with, relation):
     rel = models.WitchersRelationship.objects.create(first_witcher=witcher_to, second_witcher=witcher_with, relationship=relation)
     rel.save()
-    message = 'В пути мне встретился ' + witcher_with.name + '. Теперь у нас с ним взаимная ' + rel.name + '.'
+    message = 'В пути мне встретился ' + witcher_with.name + '. Теперь у нас с ним взаимная ' + relation.name + '.'
     witcher_event = models.WitcherEvent(witcher=witcher_to, event=message, date=datetime.now())
     witcher_event.save()
 
@@ -26,9 +26,9 @@ class Command(BaseCommand):
         witcher = user.profile.witcher
         stranger = Command.get_random_stranger(witcher)
         rel_count = models.Relation.objects.all().count()
-        if (models.WitchersRelationship.objects.filter(first_witcher=witcher, second_witcher=stranger).count() == 0 &
+        if (models.WitchersRelationship.objects.filter(first_witcher=witcher, second_witcher=stranger).count() == 0 and
                 models.WitchersRelationship.objects.filter(first_witcher=stranger, second_witcher=witcher).count() == 0):
-            rel_idx = randint(0, rel_count)
+            rel_idx = randint(0, rel_count - 1)
             rel = models.Relation.objects.all()[rel_idx]
             add_relation(witcher, stranger, rel)
             add_relation(stranger, witcher, rel)

@@ -19,6 +19,18 @@
         <div>
             Статус: {{ witcher.status }}
         </div>
+        <div id=weapon_container>
+            <h2>Вооружение</h2>
+            {% for weapon in weapons %}
+                <div><p>{{weapon.weapon.name}}</p></div>
+            {% endfor %}
+        </div>
+        <div id=weapon_container>
+            <h2>Броня</h2>
+            {% for armor in armors %}
+                <div><p>{{armor.armor.name}}</p></div>
+            {% endfor %}
+        </div>
     </div>
     <a href="/home/">Назад</a>
 </div>

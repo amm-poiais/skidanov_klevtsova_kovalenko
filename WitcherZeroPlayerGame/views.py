@@ -197,6 +197,8 @@ def respawn(request):
 def witcher_info(request):
     if request.user.profile.witcher is not None:
         witcher = request.user.profile.witcher
-        return render(request, 'witcher_info.html', {'witcher': witcher, })
+        weapon = models.HavingWeapon.objects.filter(witcher=witcher)
+        armor = models.HavingArmor.objects.filter(witcher=witcher)
+        return render(request, 'witcher_info.html', {'witcher': witcher, 'weapons': weapon, 'armors': armor, })
     else:
         return redirect('/create_witcher/')

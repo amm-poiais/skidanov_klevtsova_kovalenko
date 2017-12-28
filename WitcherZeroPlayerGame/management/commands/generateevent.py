@@ -97,9 +97,13 @@ class Command(BaseCommand):
         monster_dam_rel = models.MonsterDamageTypePerc.objects \
             .filter(monster=monster, damage_perc=max_dam_per)
         witcher_chance = 150
-        possible_armor = models.HavingArmor.objects.filter(witcher=wither).select_related('armor')
-        if possible_armor.count() != 0:
-            witcher_chance += possible_armor.aggregate(Max('protection'))
+        possible_armor = models.HavingArmor.objects.filter(witcher=wither)
+        armor_ids = []
+        for armor in possible_armor:
+            armor_ids.append(armor.id)
+        armor = models.Armor.objects.filter(id_in=armor_ids)
+        if armor.count() != 0:
+            witcher_chance += armor.aggregate(Max('protection'))
         possible_weapon = models.HavingWeapon.objects.filter(witcher=wither).select_related('weapon')
         if possible_weapon.count() != 0 & monster_weap_rel.count() != 0:
             possible_weapon = possible_weapon.filter(weapon__weapon_type_in=monster_weap_rel.all().weapon_type)
