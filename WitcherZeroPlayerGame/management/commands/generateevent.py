@@ -97,18 +97,21 @@ class Command(BaseCommand):
         monster_dam_rel = models.MonsterDamageTypePerc.objects \
             .filter(monster=monster, damage_perc=max_dam_per)
         witcher_chance = 150
-        possible_armor = models.HavingArmor.objects.filter(witcher=wither)
-        armor_ids = []
-        for armor in possible_armor:
-            armor_ids.append(armor.id)
-        armor = models.Armor.objects.filter(id_in=armor_ids)
-        if armor.count() != 0:
-            witcher_chance += armor.aggregate(Max('protection'))
+        possible_armor = models.HavingArmor.objects.filter(witcher=wither).select_related('armor')
+        possible_armor = models.Armor.objects.filter(havingarmor__in=possible_armor)
+        # armor_ids = []
+        # for armor in possible_armor:
+        #     armor_ids.append(armor.id)
+        # armor = models.Armor.objects.filter(id
+        if possible_armor.count() != 0:
+            chance = possible_armor.aggregate(Max('protection'))
+            witcher_chance += chance['protection__max']
         possible_weapon = models.HavingWeapon.objects.filter(witcher=wither).select_related('weapon')
         if possible_weapon.count() != 0 & monster_weap_rel.count() != 0:
             possible_weapon = possible_weapon.filter(weapon__weapon_type_in=monster_weap_rel.all().weapon_type)
+            possible_weapon = models.Weapon.objects.filter(havingweapon__in=possible_weapon)
             if possible_weapon.count() != 0:
-                witcher_chance += possible_weapon.aggregate(Max('damage'))
+                witcher_chance += possible_weapon.aggregate(Max('damage'))['damage__max']
         possible_alchemy = models.HavingAlchemy.objects.filter(witcher=wither).select_related('alchemy')
         if possible_alchemy.count() != 0 & monster_dam_rel.count() != 0:
             possible_alchemy = possible_alchemy.filter(alchemy__damage_type_in=monster_dam_rel.all().damage_type)
@@ -132,10 +135,10 @@ class Command(BaseCommand):
                 profile__witcher__isnull=False,
                 profile__witcher__status="Жив"
         ):
-            event_type = randint(0, 2)
-            if event_type == 0:
+            event_type = randint(0, 9)
+            if event_type <= 7:
                 self.generate_neutral_event(user)
-            elif event_type == 1:
+            elif event_type == 8:
                 self.generate_positive_event(user)
             else:
                 self.generate_negative_event(user)

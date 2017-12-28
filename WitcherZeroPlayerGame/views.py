@@ -13,6 +13,7 @@ from datetime import date, datetime
 from random import randint
 
 from WitcherZeroPlayerGame.management.commands import generateevent
+from WitcherZeroPlayerGame.management.commands import reloadgenerationbuttons
 # Create your views here.
 
 
