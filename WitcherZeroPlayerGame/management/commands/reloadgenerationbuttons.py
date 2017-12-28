@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 from datetime import datetime, timedelta
 
 
-class ReloadGenerationButtons(BaseCommand):
+class Command(BaseCommand):
     def handle(self, *args, **options):
         for user in User.objects.filter(profile__last_seen__gte=datetime.now() - timedelta(hours=1)):
             user.profile.possible_bad_events = 5
