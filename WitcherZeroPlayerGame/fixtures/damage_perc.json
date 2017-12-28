@@ -1,0 +1,16 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.DamagePerc",
+    "pk": 1,
+    "fields": {
+      "value": 0
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.DamagePerc",
+    "pk": 2,
+    "fields": {
+      "value": 1
+    }
+  }
+]

@@ -1,0 +1,106 @@
+body{
+    font-family: "Comic Sans MS";
+    margin: 0;
+    background-color: #F8F5FF;
+}
+.header{
+    width: 100%;
+    height: 50px;
+    /*background-color: #F2F7F8;*/
+    background-color: 	#181423;
+    border-radius: 5px;
+    vertical-align: middle;
+    text-align: center;
+    line-height: 45px;
+    position: relative;
+    color: white;
+}
+.main_block{
+    display: block;
+    width: 1200px;
+    margin: auto;
+    position: relative;
+}
+
+.block_elem{
+    display: block;
+    float: left;
+    min-height: 200px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    /*background-color: #F7FAFC;*/
+    background-color: 	#DDDAE5;
+}
+
+.clear{
+    display: block;
+    clear: both;
+}
+
+#info{
+    width: 19%;
+    min-height: 100px;
+    margin-right: 10px;
+}
+
+#history{
+    width: 60%;
+}
+
+#friends{
+    width: 19%;
+    margin-left: 10px;
+}
+
+h1{
+    margin: 0;
+    font-size: 20px;
+    font-weight: 700;
+    display: inline-block;
+}
+#btn_logout{
+    width: auto;
+    position: absolute;
+    right: 0;
+    top: 2px;
+    display: inline-block;
+}
+button{
+    font-weight: 500;
+    padding: 0 10px;
+    font-family: "Comic Sans MS";
+    /*background-color: lightblue;*/
+    background-color: #351A7A;
+    color: #F5F8FA;
+    display: block;
+    border-radius: 5px;
+    height: 46px;
+    margin: auto;
+    margin-bottom: 20px;
+}
+button:disabled{
+    color: #888888;
+}
+a{
+    color: #351A7A;
+}
+ul{
+    list-style-type: none;
+    text-align: center;
+    padding: 0 10px;
+    margin: 13px 0;
+}
+
+#event_container{
+    height: 450px;
+    background-color: #F0EEF4;
+    overflow-y: scroll;
+    padding: 0 10px;
+}
+
+.btns_left, .btns_right{
+    width: 49%;
+    display: inline-block;
+    box-sizing: border-box;
+    margin: 20px 0;
+}

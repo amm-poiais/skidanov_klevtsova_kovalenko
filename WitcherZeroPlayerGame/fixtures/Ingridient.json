@@ -1,0 +1,72 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 1,
+    "fields": {
+      "name": "Крушина"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 2,
+    "fields": {
+      "name": "Волкобой"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 3,
+    "fields": {
+      "name": "Ребис"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 4,
+    "fields": {
+      "name": "Хан"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 5,
+    "fields": {
+      "name": "Нострикс"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 6,
+    "fields": {
+      "name": "Печень"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 7,
+    "fields": {
+      "name": "Каприфоль"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 8,
+    "fields": {
+      "name": "Кровостой"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 9,
+    "fields": {
+      "name": "Мардрем"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Ingridient",
+    "pk": 10,
+    "fields": {
+      "name": "Безмер"
+    }
+  }
+]

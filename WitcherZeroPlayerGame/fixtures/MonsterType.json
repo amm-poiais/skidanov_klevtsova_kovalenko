@@ -1,0 +1,16 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.MonsterType",
+    "pk": 1,
+    "fields": {
+      "name": "Стайное"
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterType",
+    "pk": 2,
+    "fields": {
+      "name": "Одиночка"
+    }
+  }
+]

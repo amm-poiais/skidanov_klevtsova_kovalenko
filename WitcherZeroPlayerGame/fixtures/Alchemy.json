@@ -1,0 +1,145 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 1,
+    "fields": {
+      "name": "Ласточка",
+	  "action_time":300,
+	  "alchemy_type":3,
+	  "damage_type":7,
+	  "toxicity":90
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 2,
+    "fields": {
+      "name": "Гром",
+	  "action_time":400,
+	  "alchemy_type":3,
+	  "damage_type":4,
+	  "toxicity":100
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 3,
+    "fields": {
+      "name": "Отзвук",
+	  "action_time":300,
+	  "alchemy_type":2,
+	  "damage_type":3,
+	  "toxicity":150
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 4,
+    "fields": {
+      "name": "Пурга",
+	  "action_time":500,
+	  "alchemy_type":3,
+	  "damage_type":1,
+	  "toxicity":95
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 5,
+    "fields": {
+      "name": "Кошка",
+	  "action_time":600,
+	  "alchemy_type":3,
+	  "damage_type":7,
+	  "toxicity":90
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 6,
+    "fields": {
+      "name": "Картечь",
+	  "action_time":300,
+	  "alchemy_type":4,
+	  "damage_type":1,
+	  "toxicity":0
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 7,
+    "fields": {
+      "name": "Танцующая звезда",
+	  "action_time":200,
+	  "alchemy_type":4,
+	  "damage_type":1,
+	  "toxicity":0
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 8,
+    "fields": {
+      "name": "Айсберг",
+	  "action_time":400,
+	  "alchemy_type":4,
+	  "damage_type":2,
+	  "toxicity":0
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 9,
+    "fields": {
+      "name": "Скунс",
+	  "action_time":300,
+	  "alchemy_type":4,
+	  "damage_type":5,
+	  "toxicity":90
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 10,
+    "fields": {
+      "name": "Полнолуние",
+	  "action_time":1000,
+	  "alchemy_type":2,
+	  "damage_type":7,
+	  "toxicity":150
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 11,
+    "fields": {
+      "name": "Яд",
+	  "action_time":1000,
+	  "alchemy_type":1,
+	  "damage_type":5,
+	  "toxicity":5
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 12,
+    "fields": {
+      "name": "Яд повешенного",
+	  "action_time":600,
+	  "alchemy_type":1,
+	  "damage_type":6,
+	  "toxicity":0
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.Alchemy",
+    "pk": 13,
+    "fields": {
+      "name": "Гриб",
+	  "action_time":600,
+	  "alchemy_type":1,
+	  "damage_type":5,
+	  "toxicity":50
+    }
+  } 
+]

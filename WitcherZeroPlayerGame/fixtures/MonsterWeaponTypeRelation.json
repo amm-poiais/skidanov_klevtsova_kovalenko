@@ -1,0 +1,218 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 1,
+    "fields": {
+      "monster": 1,
+	  "weapon_type":1,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 2,
+    "fields": {
+      "monster": 1,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 3,
+    "fields": {
+      "monster": 2,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 4,
+    "fields": {
+      "monster": 3,
+	  "weapon_type":1,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 5,
+    "fields": {
+      "monster": 3,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 6,
+    "fields": {
+      "monster": 4,
+	  "weapon_type":1,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 7,
+    "fields": {
+      "monster": 4,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 8,
+    "fields": {
+      "monster": 5,
+	  "weapon_type":1,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 9,
+    "fields": {
+      "monster": 5,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 10,
+    "fields": {
+      "monster": 6,
+	  "weapon_type":1,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 11,
+    "fields": {
+      "monster": 6,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 12,
+    "fields": {
+      "monster": 7,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 13,
+    "fields": {
+      "monster": 8,
+	  "weapon_type":1,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 14,
+    "fields": {
+      "monster": 8,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 15,
+    "fields": {
+      "monster": 9,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 16,
+    "fields": {
+      "monster": 10,
+	  "weapon_type":1,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 17,
+    "fields": {
+      "monster": 10,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 18,
+    "fields": {
+      "monster": 11,
+	  "weapon_type":1,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 19,
+    "fields": {
+      "monster": 12,
+	  "weapon_type":1,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 20,
+    "fields": {
+      "monster": 12,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 21,
+    "fields": {
+      "monster": 13,
+	  "weapon_type":1,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 22,
+    "fields": {
+      "monster": 13,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 23,
+    "fields": {
+      "monster": 14,
+	  "weapon_type":1,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterWeaponTypeRelation",
+    "pk": 24,
+    "fields": {
+      "monster": 14,
+	  "weapon_type":2,
+	  "damage_perc":1
+    }
+  }
+]

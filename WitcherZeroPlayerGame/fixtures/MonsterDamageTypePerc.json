@@ -1,0 +1,281 @@
+[
+  {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 1,
+    "fields": {
+      "monster": 1,
+	  "damage_type":1,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 2,
+    "fields": {
+      "monster": 1,
+	  "damage_type":4,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 3,
+    "fields": {
+      "monster": 1,
+	  "damage_type":5,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 4,
+    "fields": {
+      "monster": 1,
+	  "damage_type":3,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 5,
+    "fields": {
+      "monster": 2,
+	  "damage_type":2,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 6,
+    "fields": {
+      "monster": 2,
+	  "damage_type":4,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 7,
+    "fields": {
+      "monster": 2,
+	  "damage_type":6,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 8,
+    "fields": {
+      "monster": 3,
+	  "damage_type":4,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 9,
+    "fields": {
+      "monster": 3,
+	  "damage_type":2,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 10,
+    "fields": {
+      "monster": 3,
+	  "damage_type":5,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 11,
+    "fields": {
+      "monster": 4,
+	  "damage_type":5,
+	  "damage_perc":1
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 12,
+    "fields": {
+      "monster": 4,
+	  "damage_type":6,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 13,
+    "fields": {
+      "monster": 5,
+	  "damage_type":1,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 14,
+    "fields": {
+      "monster": 5,
+	  "damage_type":5,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 15,
+    "fields": {
+      "monster": 5,
+	  "damage_type":3,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 16,
+    "fields": {
+      "monster": 6,
+	  "damage_type":7,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 17,
+    "fields": {
+      "monster": 6,
+	  "damage_type":3,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 18,
+    "fields": {
+      "monster": 7,
+	  "damage_type":2,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 19,
+    "fields": {
+      "monster": 7,
+	  "damage_type":3,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 20,
+    "fields": {
+      "monster": 7,
+	  "damage_type":6,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 21,
+    "fields": {
+      "monster": 8,
+	  "damage_type":5,
+	  "damage_perc":1
+    }
+  },  
+  {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 22,
+    "fields": {
+      "monster": 9,
+	  "damage_type":4,
+	  "damage_perc":2
+    }
+  },
+  {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 23,
+    "fields": {
+      "monster": 10,
+	  "damage_type":2,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 24,
+    "fields": {
+      "monster": 10,
+	  "damage_type":3,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 25,
+    "fields": {
+      "monster": 11,
+	  "damage_type":6,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 26,
+    "fields": {
+      "monster": 11,
+	  "damage_type":7,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 27,
+    "fields": {
+      "monster": 12,
+	  "damage_type":2,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 28,
+    "fields": {
+      "monster": 12,
+	  "damage_type":4,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 29,
+    "fields": {
+      "monster": 13,
+	  "damage_type":6,
+	  "damage_perc":1
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 30,
+    "fields": {
+      "monster": 13,
+	  "damage_type":1,
+	  "damage_perc":2
+    }
+  },
+    {
+    "model": "WitcherZeroPlayerGame.MonsterDamageTypePerc",
+    "pk": 31,
+    "fields": {
+      "monster": 14,
+	  "damage_type":4,
+	  "damage_perc":1
+    }
+  }
+]

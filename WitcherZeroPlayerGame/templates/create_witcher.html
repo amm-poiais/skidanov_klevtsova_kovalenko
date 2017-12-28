@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create witcher</title>
+</head>
+<body style="font-weight: 500; font-family: 'Comic Sans MS'">
+<div style=" width: 300px; margin: auto; text-align: center; border-radius: 10px; background-color: #DDDAE5; padding: 10px">
+    <p style="margin: 0">Создайте ведьмака</p>
+    <form action="/create_witcher/" method="post">
+        <div>
+            <div style="text-align: left; margin: auto; display: inline-block">
+                {% csrf_token %}
+                {{ form.as_p }}
+            </div>
+            <br>
+            <input type="submit" value="Создать">
+        </div>
+    </form>
+    <br>
+    <a href="/logout/">Выйти</a>
+</div>
+</body>
+</html>
